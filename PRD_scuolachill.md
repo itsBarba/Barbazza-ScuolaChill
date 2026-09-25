@@ -77,7 +77,9 @@ il software è progettato per l'istituto superiore don bosco san donà di piave 
 
 | ID      | Archetipo | Contesto d'uso                  | Competenze digitali | Dispostitivo principale | Frequenza d'uso |
 | ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
-| ARC-001 | Direttore | Controllo attivita giornaliere  | ...                 | Computer o cellulare    | Frequente       |
+| ARC-001 | Direttore | Tramite il registro/software,   |                     |                         |                 |
+|         |           | Controllo attivita giornaliere  |                     | Computer o cellulare    | Frequente       |
+|         |           | gestire classi e utenti         | ...                 |                         |                 |
 | ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
 | ARC-002 | Docente   | carica verifiche/materiale/voti | ...                 | Computer o cellulare    | Frequente       |
 | ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
@@ -85,3 +87,48 @@ il software è progettato per l'istituto superiore don bosco san donà di piave 
 | ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
 | ARC-001 | Direttore | ...                             | ...                 | ...                     | ...             |
 | ------- | --------- | ------------------------------  | ------------------- | ----------------------- | --------------- |
+
+#
+
+#
+
+#
+
+# DA FARE PANORAMICA E CASI D'uso
+
+(((((((((((((((((((((DA FARE ANCORA)))))))))))))))))))))
+
+#
+
+#
+
+#
+
+## Le User stories
+
+**Direttore**
+_Dir-01_: come Direttore voglio poter creare facilmente utenti per i docenti e studenti cosi da poter velocizzare la creazione di utenti ogni nuovo inizio anno
+
+_Dir-02_: come Direttore voglio poter creare classi cosi da poter organizzare comodamente gli studenti
+
+_Dir-03_: come Direttore voglio poter spostare gli utenti tra le varie classi cosi da poter facilmente gestire eventuali cambiamenti
+
+_Dir-04_: come Direttore voglio poter visuallizzare le classi ed i loro partecipanti
+
+#
+
+**Docente**
+_Doc-01_: come docente voglio poter caricare il mio materiale scolastico per gli studenti cosi da poter dare la possibilità agli studenti di visualizzare comodamente il materiale da dove vogliono
+
+_Doc-02_: come docente volgio poter assegnare verifiche alle classi cosi da farle compilare dagli studenti
+
+_Doc-03_: come docente voglio poter assegnare i voti ad ogni studente cosi da poter tener traccia delle loro prestazioni/valutazioni
+
+#
+
+**Studente**
+_Stu-01_: come studente voglio poter vedere i miei voti per ogni materia cosi da tener traccia della mia media
+
+_Stu-02_: come studente voglio poter vedere i compiti che mi hanno assegnato cosi da potermi organizzare
+
+_Stu-03_: come studente voglio poter vedere i materiali di studio dati dai docenti cosi da poter studiare

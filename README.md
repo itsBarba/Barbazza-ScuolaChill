@@ -15,3 +15,8 @@ Link: Metti il testo visibile tra parentesi quadre e l'indirizzo web tra parente
 Citazioni: Inizia la riga con il simbolo maggiore (>) seguito da uno spazio.
 
 Codice inline: Racchiudi il testo tra singoli accenti gravi (es. `codice`).
+
+| Intestazione 1 | Intestazione 2 |
+| -------------- | -------------- |
+| Cella A1       | Cella B1       |
+| Cella A2       | Cella B2       |
