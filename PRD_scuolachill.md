@@ -55,3 +55,33 @@
 | Cella A2         | Cella B2               |
 | Cella A2         | Cella B2               |
 | Cella A2         | Cella B2               |
+
+#
+
+#
+
+## Destinatari e contesto d'uso
+
+#### La scuola che avete immgaginato
+
+il software è progettato per l'istituto superiore don bosco san donà di piave "SFB don bosco (istituto tecnico)".
+
+(da creare una tabella)
+**Numero di studenti** - 400
+**Numero di docenti** - ???
+**Numero di classi** - 18-20
+**Orario scolastico** - lunedi, mercoledi, venerdi = dalle 8.00 alle 13.30, Martedi, giovedi = dalle 8.00 alle 16.30
+**Connettività** - Wifi ....???
+
+### Gli archetipi
+
+| ID      | Archetipo | Contesto d'uso                  | Competenze digitali | Dispostitivo principale | Frequenza d'uso |
+| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
+| ARC-001 | Direttore | Controllo attivita giornaliere  | ...                 | Computer o cellulare    | Frequente       |
+| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
+| ARC-002 | Docente   | carica verifiche/materiale/voti | ...                 | Computer o cellulare    | Frequente       |
+| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
+| ARC-003 | Studente  | controllo voti                  | ...                 | Computer o cellulare    | Frequente       |
+| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
+| ARC-001 | Direttore | ...                             | ...                 | ...                     | ...             |
+| ------- | --------- | ------------------------------  | ------------------- | ----------------------- | --------------- |

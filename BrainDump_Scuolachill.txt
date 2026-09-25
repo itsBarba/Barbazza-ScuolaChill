@@ -1,0 +1,25 @@
+Contesto e carico
+
+Che scuola sto immaginando? Media, superiore, istituto tecnico? Quanti studenti, quante classi, quante materie?
+
+Scuola superiore come il don bosco san donà di piave SFB don bosco (istituto tecnico)
+- meccanico
+- Automotive (Riparazione veicoli a motore)
+- Elettrico / Elettrotecnico
+- Termoidraulico (Impianti ed energie)
+- Informatico (Reti, programmazione e sviluppo web)
+
+
+Cosa succede davvero alle 9:00 quando tre classi iniziano una verifica insieme? Quanti utenti sono, realisticamente?
+-non credo che per le 9 siano tutti conessi sul server
+
+Cosa conosco già bene (linguaggio, framework, DB) e userei senza pensarci?
+Stack
+html, css, javascript, node, react, python, mariadb o MySQL,
+
+
+Cosa mi incuriosisce imparare, sapendo che rallenterebbe lo sviluppo?
+il database, (una parte un po difficile)
+
+Che tipo di frontend voglio scrivere: SPA, server-rendered, altro?
+Che cos'è una SPA (Single-Page Application)Una SPA è un'applicazione web che carica una sola pagina HTML iniziale. Quando navighi nel sito, il browser non ricarica mai l'intera pagina.Come funziona: Il browser scarica un file JavaScript di base. Questo script crea e aggiorna dinamicamente la grafica e i testi usando i dati ricevuti dal server (tramite chiamate API).Vantaggi: L'esperienza utente è fluida e veloce dopo il primo caricamento, simile a un'app per computer.Svantaggi: Il primo caricamento può essere lento perché il browser deve scaricare ed eseguire molto codice JavaScript prima di mostrare il contenuto.Che cos'è il Server-Side Rendering (SSR)Il Server-Side Rendering (o rendering lato server) è la tecnica in cui il codice HTML completo della pagina viene creato direttamente sul server web ogni volta che un utente visita un indirizzo.Come funziona: Quando richiedi una pagina, il server la prepara unendo dati e grafica in un file HTML pronto. Il server spedisce la pagina finita al browser, che la mostra subito all'utente.Vantaggi: La pagina iniziale si vede molto più velocemente (specialmente su connessioni o dispositivi lenti) ed è perfetta per i motori di ricerca (SEO).Svantaggi: Richiede più lavoro e risorse da parte del server per ogni singola richiesta.
