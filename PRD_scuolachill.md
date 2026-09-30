@@ -109,16 +109,34 @@ il software è progettato per l'istituto superiore don bosco san donà di piave 
 **Direttore**
 _Dir-01_: come Direttore voglio poter creare facilmente utenti per i docenti e studenti cosi da poter velocizzare la creazione di utenti ogni nuovo inizio anno
 
+    Ac-01: Dato che sono autenticato come direttore, Quando creo gli utenti, l'account viene creato con il ruolo corretto e compare in uno degli elenchi Docente o studente
+
+    Ac-02: Se creo un utente (sia per lo studente sia per il docente) con una email gia resgistrata ad un altro utente, ritorna l'errore e non viene creato nessun account
+
+    Ac-03: se autenticato con un utente non direttore, quando si prova a creare un utente, l'operazione deve essere negata
+
 _Dir-02_: come Direttore voglio poter creare classi cosi da poter organizzare comodamente gli studenti
+
+    Ac-01: Autenticato come direttore, quando creo una classe e assegno gli studenti, gli studenti risultano appartententi alla classe seleziona
+
+    Ac-02: come direttore se assegno uno studente (già appartenente ad una classe)  ad un'altra classe, il sistema mi specifica (dandomi un pop up di conferma) se desidero far trasfereire uno studente
 
 _Dir-03_: come Direttore voglio poter spostare gli utenti tra le varie classi cosi da poter facilmente gestire eventuali cambiamenti
 
-_Dir-04_: come Direttore voglio poter visuallizzare le classi ed i loro partecipanti
+       Ac-01: come direttore se assegno uno studente (già appartenente ad una classe)  ad un'altra classe, il sistema mi specifica (dandomi un pop up di conferma) se desidero far trasfereire uno studente
+
+_Dir-04_: come Direttore voglio poter visualizzare le classi ed i loro partecipanti
+
+#
 
 #
 
 **Docente**
 _Doc-01_: come docente voglio poter caricare il mio materiale scolastico per gli studenti cosi da poter dare la possibilità agli studenti di visualizzare comodamente il materiale da dove vogliono
+
+    Ac-01: Autenticato come docente quando carico il materiale appare disponibile per gli studenti nella sezione del materiale per quella materia
+
+    Ac-02:
 
 _Doc-02_: come docente volgio poter assegnare verifiche alle classi cosi da farle compilare dagli studenti
 
@@ -132,3 +150,5 @@ _Stu-01_: come studente voglio poter vedere i miei voti per ogni materia cosi da
 _Stu-02_: come studente voglio poter vedere i compiti che mi hanno assegnato cosi da potermi organizzare
 
 _Stu-03_: come studente voglio poter vedere i materiali di studio dati dai docenti cosi da poter studiare
+
+### Le decisioni lasciate aperte dalla traccia
