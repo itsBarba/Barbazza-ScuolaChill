@@ -136,19 +136,43 @@ _Doc-01_: come docente voglio poter caricare il mio materiale scolastico per gli
 
     Ac-01: Autenticato come docente quando carico il materiale appare disponibile per gli studenti nella sezione del materiale per quella materia
 
-    Ac-02:
+    Ac-02: se autenticato come non docente se provo a caricare materiale nella classe, deve comparire un errore e negare l'operazione
 
-_Doc-02_: come docente volgio poter assegnare verifiche alle classi cosi da farle compilare dagli studenti
+_Doc-02_: come docente voglio poter assegnare verifiche alle classi cosi da farle compilare dagli studenti
+
+    AC-01: Autenticato come docente quando carico una verifica nella sezione apposita, posso assegnarla alla classe desiderata cosi appare anche agli stuenti che possono compilarla
+
+    AC-02: se carico una verifica con lo stesso nome da errore con un avviso
+
+    AC-03: Quando consegnano la verifica arriva una notifica
 
 _Doc-03_: come docente voglio poter assegnare i voti ad ogni studente cosi da poter tener traccia delle loro prestazioni/valutazioni
+
+    AC-01: Autenticato come Docente di una classe, Quando assegno un voto valido a uno studente per la mia materia, Allora il voto viene salvato ed è visibile allo studente.
+
+    AC-02:
+
+    AC-03: Quando provo a dare un voto a uno studente di una classe non mia, Allora l'operazione viene negata.
 
 #
 
 **Studente**
 _Stu-01_: come studente voglio poter vedere i miei voti per ogni materia cosi da tener traccia della mia media
 
+    AC-01: Autenticato come studente, Quando apro la sezione voti, Allora vedo solo i miei voti, raggruppati per materia, con la media per materia.
+
+    AC-02: Dato che sono Studente, Quando provo ad accedere ai voti di un altro studente, Allora l'accesso viene negato.
+
 _Stu-02_: come studente voglio poter vedere i compiti che mi hanno assegnato cosi da potermi organizzare
 
+    AC-01: autenticato come studente quando entro nella sezione dei compiti posso vederli organizzati per data di scadenza
+
+    AC-02: se provo a cambiare data o compito mi da errore
+
 _Stu-03_: come studente voglio poter vedere i materiali di studio dati dai docenti cosi da poter studiare
+
+    AC-01: autenticato come studente quando entro nella sezione dei materiale della materia della classe, li vedo
+
+    Ac-02: se provo a caricare del materiale mi da errore
 
 ### Le decisioni lasciate aperte dalla traccia
