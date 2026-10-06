@@ -328,53 +328,6 @@ _Fine quadrimestre_
 | Regione          | Italy North                                                                                                                                | West Europe                                                     | Più vicina fisicamente alla scuola (minore latenza) e residenza dei dati in Italia, rilevante per dati di minorenni (voti, anagrafiche)                                                                                                                                           |
 | Servizio esterno | Azure Communication Services – Email (alternativa: SendGrid)                                                                               | —                                                               | Invio email delle credenziali ai nuovi account; resta dentro l'ecosistema Azure già scelto. Gestione del fallimento: vedi decisione FR-DOM-05                                                                                                                                     |
 
-## Architettura
-
-### Diagramma dei componenti
-
-```mermaid
-graph TD
-  A["React SPA<br/>(Azure Static Web Apps)"]
-
-  subgraph BK ["Backend — Azure Container Apps (NestJS)"]
-    B["Presentation / API Layer<br/>Controller + DTO + Guard ruoli"]
-    C["Application / Business Layer<br/>Service con le regole di dominio"]
-    D["Data Access Layer<br/>Repository (query parametrizzate)"]
-  end
-
-  E[("Azure Database for MySQL<br/>Flexible Server")]
-  F[("Azure Blob Storage<br/>materiale didattico")]
-  G["Azure Communication Services<br/>invio email credenziali"]
-
-  A -- "HTTPS / JSON" --> B
-  B --> C
-  C --> D
-  D --> E
-  C -- "upload/download file" --> F
-  C -- "invio credenziali (FR-DOM-05)" --> G
-```
-
-### I livelli, riferiti a ScuolaChill
-
-| Livello                | Cosa fa in ScuolaChill                                                                                                                                                                                                                    | Esempio concreto                                                                                                                                                                                                                                              |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Presentation / API     | Controller NestJS che ricevono la richiesta HTTP, validano il payload (DTO + `class-validator`), verificano ruolo/autenticazione tramite guard, e restituiscono la risposta nel formato uniforme. Non contiene nessuna regola di dominio. | `AssegnazioniController` espone `POST /api/assegnazioni`: valida `docente_id`/`materia_id`/`classe_id`, controlla via `RoleGuard` che il chiamante sia Direttore, poi passa tutto al service.                                                                 |
-| Application / Business | Servizi che implementano le regole del dominio: cosa è permesso, quando, a chi. È qui che vivono le decisioni FR-DOM formalizzate sopra.                                                                                                  | `VerificheService.aggiornaVerifica()` controlla la data di svolgimento prima di permettere la modifica (FR-DOM-03); `IscrizioniService.trasferisciStudente()` chiude l'iscrizione corrente e ne apre una nuova (FR-DOM-02), invece di sovrascrivere un campo. |
-| Data Access            | Repository che parlano con MySQL tramite ORM, eseguono query parametrizzate, mappano righe del database in oggetti di dominio.                                                                                                            | `AssegnazioneRepository.trovaPerDocente(docenteId)` genera una query parametrizzata, prevenendo SQL injection per costruzione.                                                                                                                                |
-
-### Le dipendenze fra i livelli
-
-Regola unica, sempre nella stessa direzione: **Controller → Service → Repository → Database**, mai il contrario.
-
-- Il Service non sa nulla di HTTP (niente `Request`/`Response`, niente status code): riceve ed espone dati semplici, o lancia eccezioni di dominio che è il controller a tradurre in un codice HTTP con il formato errori uniforme.
-- Il Repository non sa nulla delle regole di business: esegue solo l'operazione sul database che il service gli chiede.
-- Le dipendenze sono **iniettate** tramite il container IoC di NestJS, non istanziate a mano. Il service dipende da un'**interfaccia** (`IVerificheRepository`), non dalla classe concreta che parla con MySQL.
-
-### Come riduce l'accoppiamento e rende il sistema testabile
-
-- **Un cambio di database non si propaga**: passare da MySQL a PostgreSQL toccherebbe solo l'implementazione del Data Access Layer; Controller e Service, dove vive tutta la logica su voti, trasferimenti e scadenze, restano identici perché dipendono dall'interfaccia astratta.
-- **La logica di dominio è testabile senza database vero**: per verificare che FR-DOM-03 blocchi la modifica di una verifica dopo la data di svolgimento, il test unitario del `VerificheService` inietta un repository finto in memoria al posto di quello reale — nessun container Docker o connessione reale necessaria. È la separazione delle dipendenze infrastrutturali richiesta dalla traccia nella sezione Qualità architetturale.
-
 ## Dimensionamento e costi
 
 | Componente         | Servizio                                 | Taglia                         | Istanze                | Costo mensile stimato                                                                                                                                     |
