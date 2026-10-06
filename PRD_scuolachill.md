@@ -25,11 +25,19 @@
 
 **Dal lato business.**: facilita i tre utenti (Direttore, Docente, Studente) allo svolgimento della vita scolastica/lavorativa con gestione e organizzazione delle varie attività e scolastiche
 
-**Dal lato tecnico**:
+**Dal lato tecnico**: Velocizza e rende efficente l'organizzazione di varie funzionalità
+
+#### Cosa è incluso
+
+- Gestione di classi, docenti e studenti da parte del Direttore
+
+- Caricamento di materiale scolastico, verifiche e voti da parte del Docente
 
 #### Cosa non è incluso
 
-........
+- Avvisi comunicativi da parte della scuola alle famiglie
+
+- Un sistema di appello per le presenze
 
 # Stakeholder
 
@@ -68,10 +76,10 @@ il software è progettato per l'istituto superiore don bosco san donà di piave 
 
 (da creare una tabella)
 **Numero di studenti** - 400
-**Numero di docenti** - ???
+**Numero di docenti** - 46
 **Numero di classi** - 18-20
 **Orario scolastico** - lunedi, mercoledi, venerdi = dalle 8.00 alle 13.30, Martedi, giovedi = dalle 8.00 alle 16.30
-**Connettività** - Wifi ....???
+**Connettività** - Wifi
 
 ### Gli archetipi
 
@@ -96,13 +104,17 @@ il software è progettato per l'istituto superiore don bosco san donà di piave 
 
 # DA FARE PANORAMICA E CASI D'uso
 
-(((((((((((((((((((((DA FARE ANCORA)))))))))))))))))))))
+ScuolaChill è un registro elettronico con la possibilità di creare e organizzare comodamente gli studenti e docenti,
+Trammite log in ogni utente avra accesso a vari servizi e operazioni garantendo e supportando lo svolgimento della
+vita scolastica
 
-#
+### User flow e scenari
 
-#
-
-#
+Dir-01:
+1 fa il log in
+2 attiva l'operazione crea utente
+3 inserisce varie credenziale dell'utente
+4 conferma e lo posiziona in una classe
 
 ## Le User stories
 
@@ -124,8 +136,6 @@ _Dir-02_: come Direttore voglio poter creare classi cosi da poter organizzare co
 _Dir-03_: come Direttore voglio poter spostare gli utenti tra le varie classi cosi da poter facilmente gestire eventuali cambiamenti
 
        Ac-01: come direttore se assegno uno studente (già appartenente ad una classe)  ad un'altra classe, il sistema mi specifica (dandomi un pop up di conferma) se desidero far trasfereire uno studente
-
-_Dir-04_: come Direttore voglio poter visualizzare le classi ed i loro partecipanti
 
 #
 
@@ -176,3 +186,126 @@ _Stu-03_: come studente voglio poter vedere i materiali di studio dati dai docen
     Ac-02: se provo a caricare del materiale mi da errore
 
 ### Le decisioni lasciate aperte dalla traccia
+
+## Requisiti non funzionali
+
+| id          | Famiglia       | Requisito/Requisiti     | Soglia e condizione  | Come si verifica   | Storie collegate    |
+| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
+| NFR-01      | Prestazioni    | Comparsa dei materiali  | meno di 5 secondi    | Test di carico     | Stu-01, STu02,      |
+|             |                | e verifiche             | con carico di 100    |                    | Stu-03              |
+|             |                |                         | studenti             |                    |                     |
+| ---------   | ------------   | ----------------------- | -------------------- | -----------------  | ----------------    |
+| NFR-02      | Sicurezza      | Autenticazione trammite | Prima di poter usare | Verifica che il    | Dir-01              |
+|             |                | log in                  | il software bisonga  | log in sia         |                     |
+|             |                |                         | fare il log in       | funzionante        |                     |
+| ----------- | -------------  | ----------------------- | -------------------- | ------------------ | ------------------- |
+| NFR-03      | Usabilità      | Operazioni specifiche   | I diversi ruoli      | Prova dei diversi  | Dir(-01-02-03)      |
+|             |                | richieste               | possono effeturare   | ruoli e delle loro | Doc(-01-02-03)      |
+|             |                |                         | le loro opzioni      | funzionalita       |                     |
+|             |                |                         | "specifiche"         | specifiche         |                     |
+| ----------- | -------------  | ----------------------- | -------------------- | ------------------ | ------------------- |
+| NFR-04      | Disponibilità  |
+| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
+| NFR-05      | Ambientale     | Dove girerà l'ambiente  | Funzionera sulla     | verificare l'host  |                     |
+|             |                |                         | rete della scuola    |                    |                     |
+| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
+| NFR-06      | Supporto       | Supporto nel caso di    | l'utente potra       | verificare che     |
+|             |                | aiuto                   | contattare           | l'indirizzo sia    |
+|             |                |                         | l'indirizzo di       | corretto           |
+|             |                |                         | e riceverà una       |                    |
+|             |                |                         | risposta entro una   |                    |
+|             |                |                         | giornata lavorativa  |                    |
+| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
+| NFR-07      |
+
+| nfr-08
+
+# REQUISITI IMPLICI
+
+studente 1
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+# SECONDA PARTE !!!!!!!!!
+
+## Stima del carico
+
+### Utenti concorrenti
+
+_Uso normale durante la giornata:_
+
+- Utenti concorrenti stimati: 50-80
+- Studenti/docenti che consultano materiale o voti in modo sparso durante le ore
+
+_Picco delle verifiche 9.00:_
+
+- Utenti concorrenti stimati: 150-200
+- Caso peggiore: 6-8 classi iniziano insieme, 20-30 studenti ciascuna, più il traffico di fondo
+
+_Fine quadrimestre_
+
+- Utenti concorrenti stimati: 80-120
+- più o meno 40 docenti inseriscono voti in parallelo, più studenti che controllano subito dopo
+
+#
+
+#
+
+### Profilo di carico
+
+| Operazione | Frequente?  | Pesante?             | Critica? |
+| ---------- | ----------- | -------------------- | -------- |
+| Login      | Si          | No                   | Si       |
+| ---------- | ----------- | -------------------- | -------- |
+| Apertura   | Concentrata | Leggera singlarmente | Si       |
+| Verifica   | nel picco   | pesante in aggregato |          |
+| ---------- | ----------- | -------------------- | -------- |
+| Consegna   | Concentrata | Scrittura su DB in   | si       |
+| verifica   | nel picco   | burst                | molta    |
+| ---------- | ----------- | -------------------- | -------- |
+| Dashboard  | Rara        | Pesante (query       | No       |
+| Direttore  |             | aggregate su più     |          |
+|            |             | tabelle)             |          |
+| ---------- | ----------- | -------------------- | -------- |
+| Carimento  | Rara        | Dipende dalla        | No       |
+| materiale  |             | dimensione del file  |          |
+| ---------- | ----------- | -------------------- | -------- |
+
+#
+
+#
+
+## Scelte tecnologiche
+
+**Backend** - **Nodejs**:
+
+- alternative: Python
+- Rimango con lo stesso linguaggio di React, cosi da avere un solo
+  linguaggio per tutto
+
+**Frontend** - **React**
+
+- alternative: nd
+- Già visto in precedenza e attualmente argomento di studio
+
+**Database** - **MySQl/MariaDB**
+
+- alternative: PostgreSQL
+- PostgreSQL è preferito per database complessi e articolati,
+  ma per questo progetto non serve e userò l'opzione più semplice
+
+**Provider cloud e servizi** -
+
+**Regione** - **Italy north**
+
+**Servizio esterno** - **azure communication services - Email o SendGrid**
