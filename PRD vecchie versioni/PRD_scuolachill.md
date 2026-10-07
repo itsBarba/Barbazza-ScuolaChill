@@ -1,21 +1,21 @@
 # PDR ScuolaChill - Barbazza
 
-## Iformazioni sul documento
+## Informazioni sul documento
 
-**Prodotto** - ScuolaChill
-**Team** - Barba industries
-**Autori** - Matteo Barbazza
-**Versione** - 1.0 (da verificare)
-**Data** - 23/09/2026
-**Stato** - Bozza
+|              |                  |
+| ------------ | ---------------- |
+| **Prodotto** | ScuolaChill      |
+| **Team**     | Barba industries |
+| **Autori**   | Matteo Barbazza  |
+| **Versione** | 1.0              |
+| **Data**     | 23/09/2026       |
+| **Stato**    | Bozza            |
 
 #### Storico delle versioni
 
-(da creare una tabella)
-**Versione** - 1.0
-**Data** - 23/09/2026
-**Autore** - Matteo Barbazza
-**Cosa è cambiato e perché** - Prima stesura
+| Versione | Data       | Autore          | Cosa è cambiato e perché |
+| -------- | ---------- | --------------- | ------------------------ |
+| 1.0      | 23/09/2026 | Matteo Barbazza | Prima stesura            |
 
 # Prima parte - Il cosa
 
@@ -41,32 +41,13 @@
 
 # Stakeholder
 
-| Stakeholder      | Cosa fa                | Cosa gli interessa    | Come lo Coinvolgete     |
-| ---------------- | ---------------------- | --------------------- | ----------------------- |
-| Direttore        | Fornisce gli accessi e | Gestisce/crea profili | Riunioni costanti per   |
-|                  | i dati necessari allo  | e classi, è il ruolo  | Ridefinire il progetto  |
-|                  | sviluppo               | più importante        | e ottenere info e       |
-|                  |                        |                       | feedback dai suoi test  |
-| ---------------- | ---------------------  | --------------------  | ---------------------   |
-| Docente          |                        | Carica il materiale,  | Riunioni periodiche per |
-|                  |                        | creare le verifiche e | Ridefinire il progetto  |
-|                  |                        | assegnare i voti      | e ottenere info e       |
-|                  |                        |                       | feedback dai suoi test  |
-| ---------------- | ---------------------  | --------------------  | ---------------------   |
-| Docente          |                        | Carica il materiale,  | Riunioni periodiche per |
-|                  |                        | creare le verifiche e | Ridefinire il progetto  |
-|                  |                        | assegnare i voti      | e ottenere info e       |
-|                  |                        |                       | feedback dai suoi test  |
-| ---------------- | ---------------------  | --------------------  | ---------------------   |
-| Cella A2         | Cella B2               |
-| Cella A2         | Cella B2               |
-| Cella A2         | Cella B2               |
-| Cella A2         | Cella B2               |
-| Cella A2         | Cella B2               |
-
-#
-
-#
+| Stakeholder                 | Cosa fa                                                     | Cosa gli interessa                                        | Come lo coinvolgete                                                                     |
+| --------------------------- | ----------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Direttore                   | Fornisce gli accessi e i dati necessari allo sviluppo       | Gestisce/crea profili e classi, è il ruolo più importante | Riunioni costanti per ridefinire il progetto e ottenere info e feedback dai suoi test   |
+| Docente                     | Usa il sistema quotidianamente per le proprie materie       | Carica il materiale, crea le verifiche e assegna i voti   | Riunioni periodiche per ridefinire il progetto e ottenere info e feedback dai suoi test |
+| Studente                    | Usa il sistema per studiare e consultare i propri risultati | Vede materiale, svolge verifiche, controlla i voti        | Collaudo diretto come utente reale del primo anno                                       |
+| Docente del corso           | Valida il PRD                                               | Che le scelte siano motivate e coerenti                   | Presentazione e domande di validazione                                                  |
+| Collaudatori del primo anno | Usano ScuolaChill come utenti reali                         | Un'app semplice da usare senza aiuto                      | Intervista e collaudo guidato                                                           |
 
 ## Destinatari e contesto d'uso
 
@@ -74,118 +55,180 @@
 
 il software è progettato per l'istituto superiore don bosco san donà di piave "SFB don bosco (istituto tecnico)".
 
-(da creare una tabella)
-**Numero di studenti** - 400
-**Numero di docenti** - 46
-**Numero di classi** - 18-20
-**Orario scolastico** - lunedi, mercoledi, venerdi = dalle 8.00 alle 13.30, Martedi, giovedi = dalle 8.00 alle 16.30
-**Connettività** - Wifi
+|                    | Valore                                                                                                     |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| Numero di studenti | 400                                                                                                        |
+| Numero di docenti  | 46                                                                                                         |
+| Numero di classi   | 18-20                                                                                                      |
+| Orario scolastico  | Lun/Mer/Ven 8:00-13:30, Mar/Gio 8:00-16:30                                                                 |
+| Connettività       | Wi-Fi scolastico condiviso per gli studenti in aula; connessione personale (dati mobili/casa) fuori orario |
 
 ### Gli archetipi
 
-| ID      | Archetipo | Contesto d'uso                  | Competenze digitali | Dispostitivo principale | Frequenza d'uso |
-| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
-| ARC-001 | Direttore | Tramite il registro/software,   |                     |                         |                 |
-|         |           | Controllo attivita giornaliere  |                     | Computer o cellulare    | Frequente       |
-|         |           | gestire classi e utenti         | ...                 |                         |                 |
-| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
-| ARC-002 | Docente   | carica verifiche/materiale/voti | ...                 | Computer o cellulare    | Frequente       |
-| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
-| ARC-003 | Studente  | controllo voti                  | ...                 | Computer o cellulare    | Frequente       |
-| ------- | --------- | ------------------------------- | ------------------- | ----------------------- | --------------- |
-| ARC-001 | Direttore | ...                             | ...                 | ...                     | ...             |
-| ------- | --------- | ------------------------------  | ------------------- | ----------------------- | --------------- |
+| ID      | Archetipo | Contesto d'uso                                                                  | Competenze digitali                                    | Dispositivo principale                                          | Frequenza d'uso |
+| ------- | --------- | ------------------------------------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- | --------------- |
+| ARC-001 | Direttore | Usa il registro per controllare l'attività giornaliera, gestire classi e utenti | Medie (uso quotidiano di strumenti gestionali)         | Computer, a volte cellulare                                     | Frequente       |
+| ARC-002 | Docente   | Carica materiale, crea verifiche, assegna voti per le proprie materie e classi  | Variabili da materia a materia                         | Computer o cellulare                                            | Frequente       |
+| ARC-003 | Studente  | Consulta materiale, svolge verifiche, controlla i propri voti                   | Alte (nativi digitali, ma collaudatori del primo anno) | Smartphone come dispositivo principale, computer in laboratorio | Frequente       |
 
-#
+## Panoramica e casi d'uso
 
-#
-
-#
-
-# DA FARE PANORAMICA E CASI D'uso
-
-ScuolaChill è un registro elettronico con la possibilità di creare e organizzare comodamente gli studenti e docenti,
-Trammite log in ogni utente avra accesso a vari servizi e operazioni garantendo e supportando lo svolgimento della
-vita scolastica
+ScuolaChill è un registro elettronico che permette a Direttore, Docenti e Studenti di gestire comodamente la vita scolastica: creazione di classi e utenti, materiale didattico, verifiche e voti. Tramite il login, ogni utente accede solo alle operazioni e ai dati previsti dal proprio ruolo.
 
 ### User flow e scenari
 
-Dir-01:
-1 fa il log in
-2 attiva l'operazione crea utente
-3 inserisce varie credenziale dell'utente
-4 conferma e lo posiziona in una classe
+**Storia: DIR-01 · Creare account docente**
+
+User flow:
+
+1. Il Direttore effettua il login
+2. Apre la sezione "Crea utente"
+3. Inserisce i dati del docente (nome, cognome, email)
+4. Conferma la creazione
+
+Scenario principale: il Direttore crea l'account di un nuovo docente assunto a inizio anno; l'account viene creato con ruolo Docente e compare subito nell'elenco.
+
+Scenari alternativi: se l'email inserita è già registrata, il sistema mostra l'errore e non crea nulla; il Direttore corregge l'email e riprova.
+
+**Storia: STU-02 · Svolgere una verifica**
+
+User flow:
+
+1. Lo studente effettua il login
+2. Apre la sezione "Verifiche" della materia
+3. Seleziona la verifica disponibile per la propria classe
+4. Compila le risposte e consegna
+
+Scenario principale: uno studente apre la verifica di Sistemi e Reti alle 9:00 insieme al resto della classe, risponde e consegna entro l'orario previsto.
+
+Scenari alternativi: se lo studente ha già consegnato, il sistema nega un secondo tentativo; se la connessione cade durante lo svolgimento, al rientro lo studente ritrova le risposte già date (vedi decisione FR-DOM-04).
+
+**Storia: DOC-03 · Assegnare i voti**
+
+User flow:
+
+1. Il Docente effettua il login
+2. Apre la verifica svolta dalla classe
+3. Seleziona uno studente che ha consegnato
+4. Inserisce il voto e conferma
+
+Scenario principale: il Docente corregge le consegne della sua verifica e assegna un voto a ciascuno studente; ogni voto diventa visibile allo studente corrispondente.
+
+Scenari alternativi: se il Docente inserisce un voto fuori scala, il sistema rifiuta e chiede un valore valido; se il Docente prova ad assegnare un voto su una verifica non sua, l'operazione viene negata.
 
 ## Le User stories
 
+Gli ID seguono esattamente quelli della traccia, così restano stabili in commit, test e validazione. Gli AC minimi sono quelli della traccia; quelli aggiuntivi sono marcati "(aggiunto dal team)".
+
 **Direttore**
-_Dir-01_: come Direttore voglio poter creare facilmente utenti per i docenti e studenti cosi da poter velocizzare la creazione di utenti ogni nuovo inizio anno
 
-    Ac-01: Dato che sono autenticato come direttore, Quando creo gli utenti, l'account viene creato con il ruolo corretto e compare in uno degli elenchi Docente o studente
+_DIR-01 — Creare account docente_: come Direttore voglio creare gli account dei docenti così da dare al personale l'accesso al sistema con il ruolo corretto.
 
-    Ac-02: Se creo un utente (sia per lo studente sia per il docente) con una email gia resgistrata ad un altro utente, ritorna l'errore e non viene creato nessun account
+    AC-01: Dato che sono autenticato come Direttore, Quando creo un docente con dati validi, Allora l'account viene creato con ruolo Docente e compare nell'elenco dei docenti.
 
-    Ac-03: se autenticato con un utente non direttore, quando si prova a creare un utente, l'operazione deve essere negata
+    AC-02: Dato che esiste già un utente con la stessa email, Quando provo a crearne un altro, Allora ricevo un errore chiaro e nessun account viene creato.
 
-_Dir-02_: come Direttore voglio poter creare classi cosi da poter organizzare comodamente gli studenti
+    AC-03: Dato che sono autenticato come Docente o Studente, Quando provo a creare un docente, Allora l'operazione viene negata.
 
-    Ac-01: Autenticato come direttore, quando creo una classe e assegno gli studenti, gli studenti risultano appartententi alla classe seleziona
+_DIR-02 — Creare account studente_: come Direttore voglio creare gli account degli studenti così da permettere a ogni iscritto di usare l'applicazione.
 
-    Ac-02: come direttore se assegno uno studente (già appartenente ad una classe)  ad un'altra classe, il sistema mi specifica (dandomi un pop up di conferma) se desidero far trasfereire uno studente
+    AC-01: Dato che sono autenticato come Direttore, Quando creo uno studente con dati validi, Allora l'account viene creato con ruolo Studente.
 
-_Dir-03_: come Direttore voglio poter spostare gli utenti tra le varie classi cosi da poter facilmente gestire eventuali cambiamenti
+    AC-02: Dato che invio dati incompleti o non validi, Quando confermo la creazione, Allora ricevo l'indicazione puntuale dei campi errati e nessun account viene creato.
 
-       Ac-01: come direttore se assegno uno studente (già appartenente ad una classe)  ad un'altra classe, il sistema mi specifica (dandomi un pop up di conferma) se desidero far trasfereire uno studente
+    AC-03: Dato che sono autenticato come Docente o Studente, Quando provo a creare uno studente, Allora l'operazione viene negata.
 
-#
+_DIR-03 — Creare classi e comporle_: come Direttore voglio creare le classi e assegnarvi studenti e docenti con le rispettive materie così da riprodurre l'organizzazione reale della scuola.
 
-#
+    AC-01: Dato che sono autenticato come Direttore, Quando creo una classe e vi assegno studenti, Allora ogni studente risulta appartenere a quella classe.
+
+    AC-02: Dato che una classe esiste, Quando vi assegno un docente per una materia, Allora il docente vede quella classe fra le proprie e può operarvi solo per quella materia.
+
+    AC-03: Dato che uno studente è già assegnato a una classe, Quando provo ad assegnarlo a una seconda classe, Allora il sistema mi chiede conferma e, se confermo, gestisce il trasferimento in modo esplicito (vedi decisione FR-DOM-02).
+
+_DIR-04 — Vedere tutto_: come Direttore voglio una vista complessiva su classi, docenti, studenti e voti così da monitorare l'andamento della scuola senza entrare in ogni singola pagina.
+
+    AC-01: Dato che sono autenticato come Direttore, Quando apro la vista complessiva, Allora vedo i dati aggregati della scuola (classi con numero di studenti, docenti con materie, andamento dei voti).
+
+    AC-02: Dato che gli elenchi superano la dimensione di una pagina, Quando li consulto, Allora i risultati sono paginati.
+
+    AC-03: Dato che sono autenticato come Docente o Studente, Quando provo ad accedere alla vista complessiva, Allora l'operazione viene negata.
 
 **Docente**
-_Doc-01_: come docente voglio poter caricare il mio materiale scolastico per gli studenti cosi da poter dare la possibilità agli studenti di visualizzare comodamente il materiale da dove vogliono
 
-    Ac-01: Autenticato come docente quando carico il materiale appare disponibile per gli studenti nella sezione del materiale per quella materia
+_DOC-01 — Caricare materiale didattico_: come Docente voglio caricare il materiale didattico per le mie materie e classi così da metterlo a disposizione degli studenti in un posto solo.
 
-    Ac-02: se autenticato come non docente se provo a caricare materiale nella classe, deve comparire un errore e negare l'operazione
+    AC-01: Dato che sono autenticato come Docente e assegnato a una classe per una materia, Quando carico un materiale per quella classe e materia, Allora gli studenti della classe lo vedono nell'elenco della materia.
 
-_Doc-02_: come docente voglio poter assegnare verifiche alle classi cosi da farle compilare dagli studenti
+    AC-02: Dato che non sono assegnato a una classe, Quando provo a caricarvi materiale, Allora l'operazione viene negata.
 
-    AC-01: Autenticato come docente quando carico una verifica nella sezione apposita, posso assegnarla alla classe desiderata cosi appare anche agli stuenti che possono compilarla
+    AC-03: Dato che ho caricato un materiale, Quando lo modifico o lo elimino, Allora l'operazione riesce solo se il materiale è mio.
 
-    AC-02: se carico una verifica con lo stesso nome da errore con un avviso
+_DOC-02 — Creare le proprie verifiche_: come Docente voglio creare verifiche per le mie classi così da valutare gli studenti sulle mie materie.
 
-    AC-03: Quando consegnano la verifica arriva una notifica
+    AC-01: Dato che sono autenticato come Docente e assegnato a una classe per una materia, Quando creo una verifica con titolo, materia, data e contenuto, Allora la verifica risulta visibile agli studenti di quella classe.
 
-_Doc-03_: come docente voglio poter assegnare i voti ad ogni studente cosi da poter tener traccia delle loro prestazioni/valutazioni
+    AC-02: Dato che una verifica è mia, Quando la modifico prima della data di svolgimento, Allora le modifiche sono salvate; dopo la data di svolgimento la modifica viene negata (vedi decisione FR-DOM-03).
 
-    AC-01: Autenticato come Docente di una classe, Quando assegno un voto valido a uno studente per la mia materia, Allora il voto viene salvato ed è visibile allo studente.
+    AC-03: Dato che una verifica appartiene a un altro docente, Quando provo a modificarla, Allora l'operazione viene negata.
 
-    AC-02:
+    AC-04: Dato che carico una verifica con lo stesso titolo di una già esistente per la stessa classe e materia, Quando confermo, Allora ricevo un avviso di conferma prima di procedere (non un blocco, perché due verifiche omonime in periodi diversi sono un caso legittimo).
 
-    AC-03: Quando provo a dare un voto a uno studente di una classe non mia, Allora l'operazione viene negata.
+_DOC-03 — Assegnare i voti_: come Docente voglio assegnare i voti delle mie verifiche così da registrare formalmente la valutazione di ogni studente.
 
-#
+    AC-01: Dato che uno studente ha svolto una mia verifica, Quando gli assegno un voto valido, Allora il voto è registrato e lo studente può vederlo fra i propri.
+
+    AC-02: Dato che inserisco un voto fuori dalla scala prevista (0-10, step 0.5 — vedi decisione FR-DOM-01), Quando confermo, Allora ricevo un errore e il voto non viene registrato.
+
+    AC-03: Dato che la verifica appartiene a un altro docente, Quando provo ad assegnare un voto, Allora l'operazione viene negata.
 
 **Studente**
-_Stu-01_: come studente voglio poter vedere i miei voti per ogni materia cosi da tener traccia della mia media
 
-    AC-01: Autenticato come studente, Quando apro la sezione voti, Allora vedo solo i miei voti, raggruppati per materia, con la media per materia.
+_STU-01 — Consultare il materiale didattico_: come Studente voglio consultare il materiale caricato da ogni docente delle mie materie così da avere tutto ciò che serve per studiare in un unico posto.
 
-    AC-02: Dato che sono Studente, Quando provo ad accedere ai voti di un altro studente, Allora l'accesso viene negato.
+    AC-01: Dato che sono autenticato come Studente, Quando apro una materia della mia classe, Allora vedo il materiale caricato dal docente di quella materia.
 
-_Stu-02_: come studente voglio poter vedere i compiti che mi hanno assegnato cosi da potermi organizzare
+    AC-02: Dato che un materiale appartiene a una classe diversa dalla mia, Quando provo ad accedervi, Allora l'operazione viene negata.
 
-    AC-01: autenticato come studente quando entro nella sezione dei compiti posso vederli organizzati per data di scadenza
+_STU-02 — Svolgere una verifica_: come Studente voglio svolgere le verifiche assegnate alla mia classe così da essere valutato sulle materie che seguo.
 
-    AC-02: se provo a cambiare data o compito mi da errore
+    AC-01: Dato che una verifica è disponibile per la mia classe, Quando la svolgo e consegno, Allora le mie risposte sono salvate e la verifica risulta consegnata.
 
-_Stu-03_: come studente voglio poter vedere i materiali di studio dati dai docenti cosi da poter studiare
+    AC-02: Dato che ho già consegnato una verifica, Quando provo a svolgerla di nuovo, Allora l'operazione viene negata.
 
-    AC-01: autenticato come studente quando entro nella sezione dei materiale della materia della classe, li vedo
+    AC-03: Dato che la verifica appartiene a un'altra classe, Quando provo ad accedervi, Allora l'operazione viene negata.
 
-    Ac-02: se provo a caricare del materiale mi da errore
+    AC-04: Dato che sono autenticato come Studente, Quando apro la sezione verifiche, Allora le vedo organizzate per data di scadenza, anche quelle non ancora disponibili per lo svolgimento.
+
+    AC-05 (aggiunto dal team): Dato che la connessione cade durante lo svolgimento, Quando mi riconnetto prima della consegna, Allora ritrovo le risposte già date fino a quel momento (vedi decisione FR-DOM-04).
+
+_STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei voti raggruppati per materia così da sapere come sto andando in ciascuna.
+
+    AC-01: Dato che ho voti registrati, Quando apro la pagina dei voti, Allora li vedo raggruppati per materia con l'indicazione della verifica di provenienza e la media per materia.
+
+    AC-02: Dato che sono autenticato come Studente, Quando provo a consultare i voti di un altro studente, Allora l'operazione viene negata.
+
+> **Nota di riconciliazione**: nella bozza precedente "Stu-02" era "vedere i compiti assegnati" — concetto diverso da STU-02 della traccia, che è "svolgere una verifica". L'idea di consultare le verifiche in arrivo non è persa: è diventata l'AC-04 di STU-02 sopra, mentre lo svolgimento vero e proprio (con blocco su doppia consegna) segue gli AC della traccia ed è già implementato nel contratto API come `/api/verifiche/{id}/consegne`.
 
 ### Le decisioni lasciate aperte dalla traccia
+
+> **FR-DOM-01 · Scala dei voti** (collegato a DOC-03)
+> Scala da 0 a 10, con step di 0.5 (niente segni "+"/"−"). Motivazione: coerente con la scala in uso nelle scuole superiori italiane, semplice da validare lato API con un controllo numerico.
+
+> **FR-DOM-02 · Trasferimento di uno studente fra classi** (collegato a DIR-03)
+> Il trasferimento è un'azione esplicita del Direttore, confermata con un popup. Nel modello dati non si sovrascrive la classe dello studente: si chiude l'iscrizione corrente (`data_fine = oggi`) e se ne apre una nuova nella classe di destinazione. Motivazione: i voti già dati restano storicamente legati alla classe in cui sono stati presi, nessun dato va perso, e il Direttore mantiene uno storico consultabile.
+
+> **FR-DOM-03 · Modifica di una verifica dopo lo svolgimento** (collegato a DOC-02)
+> Dopo la data di svolgimento la verifica non è più modificabile dal Docente (l'API risponde `409`). Motivazione: una verifica già consegnata da alcuni studenti non deve poter cambiare contenuto a metà, altrimenti si rischia disparità fra chi l'ha svolta prima e dopo la modifica.
+
+> **FR-DOM-04 · Connessione che cade durante una verifica** (collegato a STU-02)
+> Le risposte dello studente vengono salvate progressivamente (non solo al momento della consegna finale); se la connessione cade, al rientro lo studente ritrova le risposte già date e può continuare fino alla consegna o alla scadenza. Motivazione: perdere le risposte per un problema di rete sarebbe percepito come un'ingiustizia grave da chi sostiene una verifica.
+
+> **FR-DOM-05 · Fallimento del servizio esterno di invio email** (collegato a DIR-01, DIR-02)
+> Se l'invio dell'email con le credenziali fallisce, l'account viene comunque creato ma resta marcato come "credenziali non inviate"; il Direttore può reinviarle manualmente dall'elenco utenti. Motivazione: un servizio esterno che fallisce non deve bloccare un'operazione critica come la creazione di un account a inizio anno.
+
+> **FR-DOM-06 · Strategia di generazione degli identificatori**
+> Tutte le entità usano ID interi auto-incrementali, non UUID. Motivazione: più leggibili in log, debug e nei test durante lo sviluppo; non ci sono casi di esposizione pubblica di ID in URL non autenticati che renderebbero preferibile un UUID non enumerabile.
 
 ## Requisiti non funzionali
 
@@ -224,19 +267,7 @@ _Stu-03_: come studente voglio poter vedere i materiali di studio dati dai docen
 
 studente 1
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-# SECONDA PARTE !!!!!!!!!
+# Seconda parte - Il come
 
 ## Stima del carico
 
@@ -287,56 +318,162 @@ _Fine quadrimestre_
 
 ## Scelte tecnologiche
 
-**Backend** - **Nodejs**:
+| Area             | Scelta                                                                                                                                     | Alternativa considerata                                         | Perché ho scelto così                                                                                                                                                                                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Backend          | Node.js (NestJS)                                                                                                                           | Python (FastAPI/Django)                                         | Stesso linguaggio di React: un solo linguaggio su tutto lo stack, meno context-switching per uno sviluppatore solo. NestJS genera OpenAPI quasi automaticamente, requisito obbligatorio della traccia                                                                             |
+| Frontend         | React, SPA                                                                                                                                 | Server-side rendering                                           | L'app è tutta dietro login: il SEO (vantaggio principale dell'SSR) non serve. React è anche l'argomento di studio di quest'anno                                                                                                                                                   |
+| Database         | MySQL/MariaDB                                                                                                                              | PostgreSQL                                                      | Lo conosco già; il dominio ha relazioni dirette senza bisogno delle funzionalità avanzate di PostgreSQL (JSON complessi, CHECK avanzati)                                                                                                                                          |
+| Provider cloud   | Microsoft Azure                                                                                                                            | AWS, GCP                                                        | Esperienza pregressa (seppur solo su Azure DevOps); resto coerente su un solo provider invece di imparare più ecosistemi in parallelo                                                                                                                                             |
+| Servizi cloud    | Azure Container Apps (backend), Azure Database for MySQL Flexible Server, Azure Blob Storage (materiale), Azure Static Web Apps (frontend) | Azure Kubernetes Service (AKS), Azure Container Instances (ACI) | AKS è sovradimensionato per un solo sviluppatore (alta complessità operativa); ACI non scala e non è adatto a un sistema in produzione con utenti reali. Container Apps scala automaticamente nel picco delle 9:00 e resta vicino al piano gratuito per un carico di questa scala |
+| Regione          | Italy North                                                                                                                                | West Europe                                                     | Più vicina fisicamente alla scuola (minore latenza) e residenza dei dati in Italia, rilevante per dati di minorenni (voti, anagrafiche)                                                                                                                                           |
+| Servizio esterno | Azure Communication Services – Email (alternativa: SendGrid)                                                                               | —                                                               | Invio email delle credenziali ai nuovi account; resta dentro l'ecosistema Azure già scelto. Gestione del fallimento: vedi decisione FR-DOM-05                                                                                                                                     |
 
-- alternative: Python
-- Rimango con lo stesso linguaggio di React, cosi da avere un solo
-  linguaggio per tutto
+## Architettura
 
-**Frontend** - **React**
+### Diagramma dei componenti
 
-- alternative: nd
-- Già visto in precedenza e attualmente argomento di studio
+```mermaid
+graph TD
+  A["React SPA<br/>(Azure Static Web Apps)"]
 
-**Database** - **MySQl/MariaDB**
+  subgraph BK ["Backend — Azure Container Apps (NestJS)"]
+    B["Presentation / API Layer<br/>Controller + DTO + Guard ruoli"]
+    C["Application / Business Layer<br/>Service con le regole di dominio"]
+    D["Data Access Layer<br/>Repository (query parametrizzate)"]
+  end
 
-- alternative: PostgreSQL
-- PostgreSQL è preferito per database complessi e articolati,
-  ma per questo progetto non serve e userò l'opzione più semplice
+  E[("Azure Database for MySQL<br/>Flexible Server")]
+  F[("Azure Blob Storage<br/>materiale didattico")]
+  G["Azure Communication Services<br/>invio email credenziali"]
 
-**Provider cloud e servizi** -
+  A -- "HTTPS / JSON" --> B
+  B --> C
+  C --> D
+  D --> E
+  C -- "upload/download file" --> F
+  C -- "invio credenziali (FR-DOM-05)" --> G
+```
 
-**Regione** - **Italy north**
+### I livelli, riferiti a ScuolaChill
 
-**Servizio esterno** - **azure communication services - Email o SendGrid**
+| Livello                | Cosa fa in ScuolaChill                                                                                                                                                                                                                    | Esempio concreto                                                                                                                                                                                                                                              |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Presentation / API     | Controller NestJS che ricevono la richiesta HTTP, validano il payload (DTO + `class-validator`), verificano ruolo/autenticazione tramite guard, e restituiscono la risposta nel formato uniforme. Non contiene nessuna regola di dominio. | `AssegnazioniController` espone `POST /api/assegnazioni`: valida `docente_id`/`materia_id`/`classe_id`, controlla via `RoleGuard` che il chiamante sia Direttore, poi passa tutto al service.                                                                 |
+| Application / Business | Servizi che implementano le regole del dominio: cosa è permesso, quando, a chi. È qui che vivono le decisioni FR-DOM formalizzate sopra.                                                                                                  | `VerificheService.aggiornaVerifica()` controlla la data di svolgimento prima di permettere la modifica (FR-DOM-03); `IscrizioniService.trasferisciStudente()` chiude l'iscrizione corrente e ne apre una nuova (FR-DOM-02), invece di sovrascrivere un campo. |
+| Data Access            | Repository che parlano con MySQL tramite ORM, eseguono query parametrizzate, mappano righe del database in oggetti di dominio.                                                                                                            | `AssegnazioneRepository.trovaPerDocente(docenteId)` genera una query parametrizzata, prevenendo SQL injection per costruzione.                                                                                                                                |
 
-#
+### Le dipendenze fra i livelli
 
-#
+Regola unica, sempre nella stessa direzione: **Controller → Service → Repository → Database**, mai il contrario.
 
-#
+- Il Service non sa nulla di HTTP (niente `Request`/`Response`, niente status code): riceve ed espone dati semplici, o lancia eccezioni di dominio che è il controller a tradurre in un codice HTTP con il formato errori uniforme.
+- Il Repository non sa nulla delle regole di business: esegue solo l'operazione sul database che il service gli chiede.
+- Le dipendenze sono **iniettate** tramite il container IoC di NestJS, non istanziate a mano. Il service dipende da un'**interfaccia** (`IVerificheRepository`), non dalla classe concreta che parla con MySQL.
 
-#
+### Come riduce l'accoppiamento e rende il sistema testabile
 
-#
+- **Un cambio di database non si propaga**: passare da MySQL a PostgreSQL toccherebbe solo l'implementazione del Data Access Layer; Controller e Service, dove vive tutta la logica su voti, trasferimenti e scadenze, restano identici perché dipendono dall'interfaccia astratta.
+- **La logica di dominio è testabile senza database vero**: per verificare che FR-DOM-03 blocchi la modifica di una verifica dopo la data di svolgimento, il test unitario del `VerificheService` inietta un repository finto in memoria al posto di quello reale — nessun container Docker o connessione reale necessaria. È la separazione delle dipendenze infrastrutturali richiesta dalla traccia nella sezione Qualità architetturale.
 
-#
+## Dimensionamento e costi
 
-#
+| Componente         | Servizio                                 | Taglia                         | Istanze                | Costo mensile stimato                                                                                                                                     |
+| ------------------ | ---------------------------------------- | ------------------------------ | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Backend            | Azure Container Apps (Consumption)       | 0.5 vCPU / 1 GiB               | Autoscale 1-3 repliche | ~10 € (il piano gratuito copre 180.000 secondi vCPU, 360.000 secondi GiB e 2 milioni di richieste/mese; il traffico stimato resta vicino a questa soglia) |
+| Database           | Azure Database for MySQL Flexible Server | Burstable B1ms (1 vCPU, 2 GiB) | 1                      | ~15 € (regione Italy North)                                                                                                                               |
+| Storage materiale  | Blob Storage (Hot, LRS)                  | 5-10 GB                        | —                      | <1 €                                                                                                                                                      |
+| Frontend           | Azure Static Web Apps                    | Piano gratuito                 | —                      | 0 €                                                                                                                                                       |
+| Servizio email     | Azure Communication Services / SendGrid  | Piano gratuito                 | —                      | 0 € (ai volumi di una scuola)                                                                                                                             |
+| **Totale stimato** |                                          |                                |                        | **~15-25 €/mese**                                                                                                                                         |
 
-#
+**Strategia di scalabilità**
 
-#
+- Verticale: se il database diventa il collo di bottiglia, upgrade da B1ms a B2s (2 vCPU, 4 GiB) senza cambiare codice.
+- Orizzontale automatica: Container Apps scala le repliche in base alla concorrenza HTTP, in particolare nel picco delle 9:00.
+- Se gli studenti fossero il doppio (800): il database Burstable rischia di non bastare nei picchi, da valutare l'upgrade a General Purpose.
+- Se gli studenti fossero la metà: si resta comodamente dentro il piano gratuito di Container Apps.
 
-#
+_Nota: prezzi verificati a ottobre 2026 su azure.microsoft.com; soggetti a variazione — ricontrollare sul calcolatore ufficiale prima della consegna._
 
-#
+## Persistenza e modellazione (diagramma ER)
 
-#
+> Questa sezione è ancora da completare con identificatori, i tre modelli (DB/dominio/API) e la normalizzazione. Il diagramma entità-relazioni è già definito:
 
-#
+```mermaid
+erDiagram
+  UTENTE ||--o{ ASSEGNAZIONE : "insegna come docente"
+  MATERIA ||--o{ ASSEGNAZIONE : "riguarda"
+  CLASSE ||--o{ ASSEGNAZIONE : "per classe"
+  ASSEGNAZIONE ||--o{ MATERIALE : "carica"
+  ASSEGNAZIONE ||--o{ VERIFICA : "crea"
+  CLASSE ||--o{ ISCRIZIONE : "accoglie nel tempo"
+  UTENTE ||--o{ ISCRIZIONE : "e iscritto come studente"
+  VERIFICA ||--o{ CONSEGNA : "riceve"
+  UTENTE ||--o{ CONSEGNA : "consegna come studente"
+  CONSEGNA ||--o| VOTO : "riceve"
 
-#API
+  UTENTE {
+    int id PK
+    string nome
+    string email UK
+    string ruolo
+  }
+  CLASSE {
+    int id PK
+    string nome
+    string indirizzo
+  }
+  MATERIA {
+    int id PK
+    string nome
+  }
+  ASSEGNAZIONE {
+    int id PK
+    int docente_id FK
+    int materia_id FK
+    int classe_id FK
+  }
+  ISCRIZIONE {
+    int id PK
+    int studente_id FK
+    int classe_id FK
+    date data_inizio
+    date data_fine
+  }
+  MATERIALE {
+    int id PK
+    int assegnazione_id FK
+    string titolo
+    string file_url
+  }
+  VERIFICA {
+    int id PK
+    int assegnazione_id FK
+    string titolo
+    date data_svolgimento
+  }
+  CONSEGNA {
+    int id PK
+    int verifica_id FK
+    int studente_id FK
+    date data_consegna
+  }
+  VOTO {
+    int id PK
+    int consegna_id FK
+    float valore
+  }
+```
+
+Note di modellazione:
+
+- `ASSEGNAZIONE` lega docente+materia+classe in un'unica entità: materiale e verifiche puntano a questa, così l'autorizzazione si verifica con una sola join.
+- `ISCRIZIONE` (non un campo diretto su `UTENTE`) implementa la decisione FR-DOM-02: ogni riga è un periodo di appartenenza a una classe, con `data_fine` nulla per quella attiva.
+- `CONSEGNA` è separata da `VOTO`: rappresenta l'atto di consegnare (serve per FR-DOM-04 e per bloccare il doppio invio), il voto arriva dopo. Il legame studente-verifica-docente richiesto dalla traccia è soddisfatto transitivamente: `VOTO → CONSEGNA → VERIFICA → ASSEGNAZIONE → docente`.
+
+## API
+
+### Le risorse REST
 
 | Risorsa                         | Rappresenta                                             |
 | ------------------------------- | ------------------------------------------------------- |
@@ -463,4 +600,47 @@ Parametri `page` (default 1) e `pageSize` (default 20, max 100), risposta nel fo
 - Decisione ancora aperta: se serve un endpoint dedicato per il trasferimento di uno studente (più chiaro nei log di audit) invece di `POST`+`DELETE` sulla stessa risorsa classe.
 - Manca una `DELETE` su `/docenti` e `/studenti`: da decidere se prevedere una disattivazione (soft delete) invece di una cancellazione definitiva, per non rompere l'integrità referenziale con verifiche e voti già collegati.
 
+## Sicurezza e integrazione
 
+### Autenticazione e token
+
+- **Login**: `POST /api/auth/login` verifica email+password (hash con bcrypt, mai in chiaro) e restituisce un JWT firmato.
+- **Cosa contiene il token**: `sub` (id utente), `ruolo` (Direttore/Docente/Studente), `email`, `iat`/`exp`. Nessun dato sensibile extra.
+- **Durata**: 8 ore, allineata a una giornata scolastica, senza refresh token. Motivazione: per questa scala di progetto un flusso di refresh token è complessità in più che non compra nulla.
+- **Come viaggia**: header `Authorization: Bearer <token>` su ogni richiesta autenticata, mai in query string o cookie non protetto.
+- **Come viaggia il profilo utente**: un `AuthGuard` NestJS decodifica e verifica il token a ogni richiesta, popola `request.user` con `{ id, ruolo, email }`; i controller leggono questi dati con `@CurrentUser()`, mai fidandosi di un `userId` passato dal client.
+- **Segreto di firma**: chiave HS256 mai committata; in produzione vive in Azure Key Vault, referenziata come secret in Container Apps.
+
+### Chi può fare cosa
+
+| Operazione                            | Direttore  | Docente                                       | Studente                                 |
+| ------------------------------------- | ---------- | --------------------------------------------- | ---------------------------------------- |
+| Creare docente/studente               | ✅         | ❌                                            | ❌                                       |
+| Creare classi e assegnazioni          | ✅         | ❌                                            | ❌                                       |
+| Trasferire uno studente fra classi    | ✅         | ❌                                            | ❌                                       |
+| Caricare materiale                    | ❌         | ✅ (solo propria assegnazione)                | ❌                                       |
+| Modificare/eliminare materiale altrui | ❌         | ❌                                            | ❌                                       |
+| Creare/modificare una verifica        | ❌         | ✅ (solo propria assegnazione, entro la data) | ❌                                       |
+| Svolgere/consegnare una verifica      | ❌         | ❌                                            | ✅ (solo propria classe, una volta sola) |
+| Assegnare un voto                     | ❌         | ✅ (solo proprie verifiche)                   | ❌                                       |
+| Vedere i propri voti                  | ❌         | —                                             | ✅                                       |
+| Vedere i voti di un altro studente    | ✅ (tutti) | ✅ (solo i propri assegnati)                  | ❌                                       |
+| Vedere la dashboard complessiva       | ✅         | ❌                                            | ❌                                       |
+
+**Dove viene fatto rispettare**: sempre nel backend, su due livelli. Un `RoleGuard` nel Presentation Layer blocca chi ha il ruolo sbagliato prima ancora di entrare nel Service. Un controllo nel Business Layer verifica la proprietà del dato (es. "questa verifica è davvero del docente autenticato?"), perché il ruolo da solo non basta fra due Docenti. Il frontend nasconde i bottoni non permessi solo per UX, non è mai l'unica barriera.
+
+### L'API esterna
+
+Azure Communication Services – Email (alternativa valutata: SendGrid, scartata per restare in un unico ecosistema Azure) invia le credenziali quando il Direttore crea un account. Gestione del fallimento: formalizzata come **FR-DOM-05** — l'account viene comunque creato e marcato "credenziali non inviate", il Direttore può reinviarle manualmente. La chiamata è asincrona rispetto alla creazione dell'account: un errore del servizio email non deve far fallire la transazione di creazione utente.
+
+### Configurazione e segreti
+
+|                                              | Development                                       | Production                                              |
+| -------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
+| Connection string DB                         | File `.env` locale, mai committato (`.gitignore`) | Secret di Azure Container Apps, riferimento a Key Vault |
+| JWT secret                                   | Valore di sviluppo in `.env` locale               | Secret in Key Vault, accesso via Managed Identity       |
+| Chiave Blob Storage / Communication Services | `.env` locale                                     | Secret in Key Vault                                     |
+| Database                                     | Container MySQL locale via Docker Compose         | Azure Database for MySQL Flexible Server                |
+| Log                                          | Console, livello debug                            | Log centralizzati di Container Apps, livello info/error |
+
+Nessun segreto nel codice sorgente in nessuno dei due ambienti; in produzione la Managed Identity del Container App evita di gestire manualmente le credenziali d'accesso al Key Vault.
