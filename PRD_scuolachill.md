@@ -232,33 +232,39 @@ _STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei vo
 
 ## Requisiti non funzionali
 
-| id          | Famiglia       | Requisito/Requisiti     | Soglia e condizione  | Come si verifica   | Storie collegate    |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-01      | Prestazioni    | Comparsa dei materiali  | meno di 5 secondi    | Test di carico     | Stu-01, STu02,      |
-|             |                | e verifiche             | con carico di 100    |                    | Stu-03              |
-|             |                |                         | studenti             |                    |                     |
-| ---------   | ------------   | ----------------------- | -------------------- | -----------------  | ----------------    |
-| NFR-02      | Sicurezza      | Autenticazione trammite | Prima di poter usare | Verifica che il    | Dir-01              |
-|             |                | log in                  | il software bisonga  | log in sia         |                     |
-|             |                |                         | fare il log in       | funzionante        |                     |
-| ----------- | -------------  | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-03      | Usabilità      | Operazioni specifiche   | I diversi ruoli      | Prova dei diversi  | Dir(-01-02-03)      |
-|             |                | richieste               | possono effeturare   | ruoli e delle loro | Doc(-01-02-03)      |
-|             |                |                         | le loro opzioni      | funzionalita       |                     |
-|             |                |                         | "specifiche"         | specifiche         |                     |
-| ----------- | -------------  | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-04      | Disponibilità  |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-05      | Ambientale     | Dove girerà l'ambiente  | Funzionera sulla     | verificare l'host  |                     |
-|             |                |                         | rete della scuola    |                    |                     |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-06      | Supporto       | Supporto nel caso di    | l'utente potra       | verificare che     |
-|             |                | aiuto                   | contattare           | l'indirizzo sia    |
-|             |                |                         | l'indirizzo di       | corretto           |
-|             |                |                         | e riceverà una       |                    |
-|             |                |                         | risposta entro una   |                    |
-|             |                |                         | giornata lavorativa  |                    |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
+| id          | Famiglia       | Requisito/Requisiti     | Soglia e condizione   | Come si verifica   | Storie collegate    |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-01      | Prestazioni    | Comparsa dei materiali  | meno di 5 secondi     | Test di carico     | Stu-01, STu02,      |
+|             |                | e verifiche             | con carico di 100     |                    | Stu-03              |
+|             |                |                         | studenti              |                    |                     |
+| ---------   | ------------   | ----------------------- | --------------------- | -----------------  | ----------------    |
+| NFR-02      | Sicurezza      | Protezione delle        | Ogni richiesta senza  | Collezione postman | Tutte le storie AC  |
+|             |                | operazioni non          | token valido o con    | con casi negativi  | "Operazione negata" |
+|             |                | autorizzate             | ruolo non permesso    | per ogni ruolo     |                     |
+|             |                |                         | riceve 401/403, mai   |                    |                     |
+|             |                |                         | dari parziali         |                    |                     |
+| ----------- | -------------  | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-03      | Usabilità      | Reperibilità del        | Uno studente del      | Osservazione       | STU-01, STU-02      |
+|             |                | materiale e delle       | primo anno trova e    | diretta durante    |                     |
+|             |                | verifiche               | apre una verifica     | il collaudo        |                     |
+|             |                |                         | assegnata senza aiuto |                    |                     |
+|             |                |                         | in al massimo 3       |                    |                     |
+|             |                |                         | tocchi                |                    |                     |
+| ----------- | -------------  | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-04      | Disponibilità  | Raggiungibilità del     | Almeno 99% di uptime  | Monitoraggio Azure | STU-02, DOC-03      |
+|             |                | sistema                 | durante l'orario      | (Application       |
+|             |                |                         | scolastico (8-16:30)  | Insights / alert)  |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-05      | Ambientale     | Dove girerà l'ambiente  | Funzionera sulla      | verificare l'host  |                     |
+|             |                |                         | rete della scuola     |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-06      | Supporto       | Supporto nel caso di    | l'utente potra        | verificare che     |
+|             |                | aiuto                   | contattare            | l'indirizzo sia    |
+|             |                |                         | l'indirizzo di        | corretto           |
+|             |                |                         | e riceverà una        |                    |
+|             |                |                         | risposta entro una    |                    |
+|             |                |                         | giornata lavorativa   |                    |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
 | NFR-07      |
 
 | nfr-08
