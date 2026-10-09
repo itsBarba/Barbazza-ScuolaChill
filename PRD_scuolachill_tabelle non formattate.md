@@ -195,8 +195,6 @@ Scenari alternativi: se il Docente prova a modificare la verifica dopo la data d
 
 ## Le User stories
 
-Gli ID seguono esattamente quelli della traccia, così restano stabili in commit, test e validazione. Gli AC minimi sono quelli della traccia; quelli aggiuntivi sono marcati "(aggiunto dal team)".
-
 **Direttore**
 
 _DIR-01 — Creare account docente_: come Direttore voglio creare gli account dei docenti così da dare al personale l'accesso al sistema con il ruolo corretto.
@@ -249,7 +247,7 @@ _DOC-02 — Creare le proprie verifiche_: come Docente voglio creare verifiche p
 
     AC-03: Dato che una verifica appartiene a un altro docente, Quando provo a modificarla, Allora l'operazione viene negata.
 
-    AC-04 (aggiunto dal team): Dato che carico una verifica con lo stesso titolo di una già esistente per la stessa classe e materia, Quando confermo, Allora ricevo un avviso di conferma prima di procedere (non un blocco, perché due verifiche omonime in periodi diversi sono un caso legittimo).
+    AC-04: Dato che carico una verifica con lo stesso titolo di una già esistente per la stessa classe e materia, Quando confermo, Allora ricevo un avviso di conferma prima di procedere (non un blocco, perché due verifiche omonime in periodi diversi sono un caso legittimo).
 
 _DOC-03 — Assegnare i voti_: come Docente voglio assegnare i voti delle mie verifiche così da registrare formalmente la valutazione di ogni studente.
 
@@ -275,9 +273,9 @@ _STU-02 — Svolgere una verifica_: come Studente voglio svolgere le verifiche a
 
     AC-03: Dato che la verifica appartiene a un'altra classe, Quando provo ad accedervi, Allora l'operazione viene negata.
 
-    AC-04 (aggiunto dal team): Dato che sono autenticato come Studente, Quando apro la sezione verifiche, Allora le vedo organizzate per data di scadenza, anche quelle non ancora disponibili per lo svolgimento.
+    AC-04: Dato che sono autenticato come Studente, Quando apro la sezione verifiche, Allora le vedo organizzate per data di scadenza, anche quelle non ancora disponibili per lo svolgimento.
 
-    AC-05 (aggiunto dal team): Dato che la connessione cade durante lo svolgimento, Quando mi riconnetto prima della consegna, Allora ritrovo le risposte già date fino a quel momento (vedi decisione FR-DOM-04).
+    AC-05: Dato che la connessione cade durante lo svolgimento, Quando mi riconnetto prima della consegna, Allora ritrovo le risposte già date fino a quel momento (vedi decisione FR-DOM-04).
 
 _STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei voti raggruppati per materia così da sapere come sto andando in ciascuna.
 
@@ -382,53 +380,53 @@ _STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei vo
 |             |                | non ancora visti        | indicatore (badge) su | login dopo         |                     |
 |             |                | (emerso dall'intervista | materiale/voti        | l'aggiunta di un   |                     |
 |             |                | a Studente 3)           | aggiunti dopo il suo  | nuovo voto o       |                     |
-|             |                |                         | ultimo accesso,        | materiale          |                     |
+|             |                |                         | ultimo accesso,       | materiale          |                     |
 |             |                |                         | calcolato lato        |                    |                     |
 |             |                |                         | server al login —     |                    |                     |
 |             |                |                         | niente notifiche push |                    |                     |
 |             |                |                         | (fuori scope per      |                    |                     |
-|             |                |                         | VIN-01/VIN-03)         |                    |                     |
+|             |                |                         | VIN-01/VIN-03)        |                    |                     |
 | ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
 
 # Requisiti impliciti
 
 Intervista fatta a tre collaudatori del primo anno, identificati solo con un numero per non riportare dati personali di minori (coerente con NFR-08 sulla conformità).
 
-| Chi avete intervistato | Cosa ha detto | Requisito che ne avete ricavato |
-| --- | --- | --- |
-| Studente 1 (classe 1ª, collaudatore) | "Vorrei poter scaricare le slide e le tabelle del docente in un formato leggibile, e vedere un'anteprima prima di scaricarle, come su Google Drive" | NFR-10 — anteprima del materiale didattico prima del download |
-| Studente 2 (classe 1ª, collaudatore) | "Vorrei vedere il mio andamento in una materia e il voto con la descrizione di quale verifica era" | Nessun nuovo NFR: conferma indipendente di STU-03 AC-01, già previsto nel documento |
-| Studente 3 (classe 1ª, collaudatore) | "Vorrei essere avvisato nel menu o in qualche modo se è stato aggiunto qualcosa, tipo nuovi voti o materiale" | NFR-11 — indicatore di contenuti non ancora visti (scope ridotto rispetto a notifiche push vere, vedi nota sotto la tabella NFR) |
+| Chi avete intervistato               | Cosa ha detto                                                                                                                                       | Requisito che ne avete ricavato                                                                                                  |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Studente 1 (classe 1ª, collaudatore) | "Vorrei poter scaricare le slide e le tabelle del docente in un formato leggibile, e vedere un'anteprima prima di scaricarle, come su Google Drive" | NFR-10 — anteprima del materiale didattico prima del download                                                                    |
+| Studente 2 (classe 1ª, collaudatore) | "Vorrei vedere il mio andamento in una materia e il voto con la descrizione di quale verifica era"                                                  | Nessun nuovo NFR: conferma indipendente di STU-03 AC-01, già previsto nel documento                                              |
+| Studente 3 (classe 1ª, collaudatore) | "Vorrei essere avvisato nel menu o in qualche modo se è stato aggiunto qualcosa, tipo nuovi voti o materiale"                                       | NFR-11 — indicatore di contenuti non ancora visti (scope ridotto rispetto a notifiche push vere, vedi nota sotto la tabella NFR) |
 
 ## Assunzioni, vincoli e dipendenze
 
 ### Assunzioni
 
-| ID | Assunzione | Cosa succede se è falsa |
-| --- | --- | --- |
-| ASS-01 | La scuola ha 400 studenti, 46 docenti, 18-20 classi | Il dimensionamento (Container Apps, database, costi) va rifatto da zero |
-| ASS-02 | Nel picco delle 9:00 sono concorrenti 150-200 utenti (6-8 classi che iniziano una verifica insieme) | NFR-01/NFR-07 e la configurazione di autoscaling vanno rivisti; il database potrebbe non reggere senza upgrade |
-| ASS-03 | La connettività è mista: Wi-Fi scolastico condiviso in aula, rete personale fuori orario | NFR-05 va rivisto; con solo Wi-Fi a banda limitata servirebbe ottimizzare ulteriormente i payload |
-| ASS-04 | Un docente insegna più materie in più classi, ma su ogni combinazione materia+classe è assegnato un solo docente (nessuna compresenza) | Il modello `ASSEGNAZIONE` andrebbe esteso per permettere più docenti sulla stessa materia/classe |
-| ASS-05 | Orario scolastico: Lun/Mer/Ven 8:00-13:30, Mar/Gio 8:00-16:30 | La finestra di disponibilità garantita (NFR-04) e le fasce di manutenzione pianificata vanno ricalcolate |
+| ID     | Assunzione                                                                                                                             | Cosa succede se è falsa                                                                                        |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| ASS-01 | La scuola ha 400 studenti, 46 docenti, 18-20 classi                                                                                    | Il dimensionamento (Container Apps, database, costi) va rifatto da zero                                        |
+| ASS-02 | Nel picco delle 9:00 sono concorrenti 150-200 utenti (6-8 classi che iniziano una verifica insieme)                                    | NFR-01/NFR-07 e la configurazione di autoscaling vanno rivisti; il database potrebbe non reggere senza upgrade |
+| ASS-03 | La connettività è mista: Wi-Fi scolastico condiviso in aula, rete personale fuori orario                                               | NFR-05 va rivisto; con solo Wi-Fi a banda limitata servirebbe ottimizzare ulteriormente i payload              |
+| ASS-04 | Un docente insegna più materie in più classi, ma su ogni combinazione materia+classe è assegnato un solo docente (nessuna compresenza) | Il modello `ASSEGNAZIONE` andrebbe esteso per permettere più docenti sulla stessa materia/classe               |
+| ASS-05 | Orario scolastico: Lun/Mer/Ven 8:00-13:30, Mar/Gio 8:00-16:30                                                                          | La finestra di disponibilità garantita (NFR-04) e le fasce di manutenzione pianificata vanno ricalcolate       |
 
 ### Vincoli
 
-| ID | Vincolo | Da dove viene |
-| --- | --- | --- |
-| VIN-01 | Un solo sviluppatore sul progetto (non in team di 2) | Scelta dichiarata a inizio progetto |
-| VIN-02 | Stack tecnologico limitato a quanto già noto (Node.js, React, MySQL/MariaDB) per restare nei tempi | Competenze dichiarate dallo sviluppatore |
-| VIN-03 | Budget cloud limitato ai crediti gratuiti disponibili (es. Azure for Students) | Traccia del progetto / risorse economiche dello studente |
-| VIN-04 | Consegna e collaudo entro il calendario scolastico del corso | Traccia del progetto |
+| ID     | Vincolo                                                                                            | Da dove viene                                            |
+| ------ | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| VIN-01 | Un solo sviluppatore sul progetto (non in team di 2)                                               | Scelta dichiarata a inizio progetto                      |
+| VIN-02 | Stack tecnologico limitato a quanto già noto (Node.js, React, MySQL/MariaDB) per restare nei tempi | Competenze dichiarate dallo sviluppatore                 |
+| VIN-03 | Budget cloud limitato ai crediti gratuiti disponibili (es. Azure for Students)                     | Traccia del progetto / risorse economiche dello studente |
+| VIN-04 | Consegna e collaudo entro il calendario scolastico del corso                                       | Traccia del progetto                                     |
 
 ### Dipendenze
 
-| ID | Dipendenza | Serve entro | Chi se ne occupa |
-| --- | --- | --- | --- |
-| DIP-01 | Account Azure attivo con credito disponibile | Prima dell'inizio dello sviluppo | Matteo Barbazza |
-| DIP-02 | Servizio email esterno attivo e dominio verificato (Azure Communication Services o SendGrid) | Prima del primo invio di credenziali / collaudo | Matteo Barbazza |
-| DIP-03 | Disponibilità del Direttore e di un docente reale per fornire dati di test realistici | Prima del collaudo con il primo anno | Direttore, docente del corso |
-| DIP-04 | Dominio o sottodominio pubblico per Static Web Apps e Container Apps | Prima del deployment in produzione | Matteo Barbazza |
+| ID     | Dipendenza                                                                                   | Serve entro                                     | Chi se ne occupa             |
+| ------ | -------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------------------------- |
+| DIP-01 | Account Azure attivo con credito disponibile                                                 | Prima dell'inizio dello sviluppo                | Matteo Barbazza              |
+| DIP-02 | Servizio email esterno attivo e dominio verificato (Azure Communication Services o SendGrid) | Prima del primo invio di credenziali / collaudo | Matteo Barbazza              |
+| DIP-03 | Disponibilità del Direttore e di un docente reale per fornire dati di test realistici        | Prima del collaudo con il primo anno            | Direttore, docente del corso |
+| DIP-04 | Dominio o sottodominio pubblico per Static Web Apps e Container Apps                         | Prima del deployment in produzione              | Matteo Barbazza              |
 
 # Seconda parte - Il come
 
