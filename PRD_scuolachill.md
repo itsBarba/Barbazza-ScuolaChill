@@ -289,6 +289,7 @@ _STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei vo
 
 > **FR-DOM-01 · Scala dei voti** (collegato a DOC-03)
 > Scala da 0 a 10, con step di 0.5 (niente segni "+"/"−"). Motivazione: coerente con la scala in uso nelle scuole superiori italiane, semplice da validare lato API con un controllo numerico.
+> **Decisione presa:** i voti saranno da 3 a 10, il tutto sarà selezionabile con un menù a tendina compresi i voto+, voto-, voto 1/2
 
 > **FR-DOM-02 · Trasferimento di uno studente fra classi** (collegato a DIR-03)
 > Il trasferimento è un'azione esplicita del Direttore, confermata con un popup. Nel modello dati non si sovrascrive la classe dello studente: si chiude l'iscrizione corrente (`data_fine = oggi`) e se ne apre una nuova nella classe di destinazione. Motivazione: i voti già dati restano storicamente legati alla classe in cui sono stati presi, nessun dato va perso, e il Direttore mantiene uno storico consultabile.
@@ -349,7 +350,7 @@ Intervista fatta a tre collaudatori del primo anno, identificati solo con un num
 | ------ | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | VIN-01 | Un solo sviluppatore sul progetto (non in team di 2)                                               | Scelta dichiarata a inizio progetto                      |
 | VIN-02 | Stack tecnologico limitato a quanto già noto (Node.js, React, MySQL/MariaDB) per restare nei tempi | Competenze dichiarate dallo sviluppatore                 |
-| VIN-03 | Budget cloud limitato ai crediti gratuiti disponibili (es. Azure for Students)                     | Traccia del progetto / risorse economiche dello studente |
+| VIN-03 | Abbonamento 200 USD Azure                                                                          | Traccia del progetto / risorse economiche dello studente |
 | VIN-04 | Consegna e collaudo entro il calendario scolastico del corso                                       | Traccia del progetto                                     |
 
 ### Dipendenze
