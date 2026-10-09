@@ -90,6 +90,32 @@ Scenario principale: il Direttore crea l'account di un nuovo docente assunto a i
 
 Scenari alternativi: se l'email inserita è già registrata, il sistema mostra l'errore e non crea nulla; il Direttore corregge l'email e riprova.
 
+**Storia: DIR-03 · Creare classi e comporle**
+
+User flow:
+
+1. Il Direttore effettua il login
+2. Apre la sezione "Classi" e crea una nuova classe
+3. Assegna gli studenti alla classe
+4. Assegna un docente a una materia per quella classe
+
+Scenario principale: a inizio anno il Direttore crea la classe 1A Informatica, vi assegna 24 studenti e assegna il docente di Sistemi e Reti per quella classe e quella materia.
+
+Scenari alternativi: se prova ad assegnare uno studente già iscritto a un'altra classe, il sistema chiede conferma del trasferimento prima di procedere (vedi decisione FR-DOM-02); se il docente da assegnare non ha ancora un account, il Direttore deve prima crearlo (DIR-01).
+
+**Storia: DIR-04 · Vedere tutto**
+
+User flow:
+
+1. Il Direttore effettua il login
+2. Apre la dashboard
+3. Consulta classi, docenti e andamento voti in forma aggregata
+4. Filtra o scorre le pagine dei risultati se necessario
+
+Scenario principale: il Direttore apre la dashboard il lunedì mattina per avere un quadro generale prima dell'inizio delle lezioni, e vede il numero di studenti per classe e la media dei voti per materia.
+
+Scenari alternativi: se un Docente o uno Studente prova ad accedere alla stessa vista, l'operazione viene negata; se gli elenchi superano la dimensione di una pagina, i risultati vengono paginati automaticamente.
+
 **Storia: STU-02 · Svolgere una verifica**
 
 User flow:
@@ -103,6 +129,31 @@ Scenario principale: uno studente apre la verifica di Sistemi e Reti alle 9:00 i
 
 Scenari alternativi: se lo studente ha già consegnato, il sistema nega un secondo tentativo; se la connessione cade durante lo svolgimento, al rientro lo studente ritrova le risposte già date (vedi decisione FR-DOM-04).
 
+**Storia: STU-01 · Consultare il materiale didattico**
+
+User flow:
+
+1. Lo studente effettua il login
+2. Apre la materia di interesse della propria classe
+3. Consulta l'elenco dei materiali caricati dal docente
+4. Apre o scarica il materiale desiderato
+
+Scenario principale: uno studente apre la sezione di Matematica prima di un'interrogazione per rivedere le slide caricate dal docente.
+
+Scenari alternativi: se lo studente prova ad accedere al materiale di una classe diversa dalla propria, l'operazione viene negata.
+
+**Storia: STU-03 · Consultare i propri voti**
+
+User flow:
+
+1. Lo studente effettua il login
+2. Apre la sezione "Voti"
+3. Visualizza i voti raggruppati per materia, con la media
+
+Scenario principale: uno studente controlla i propri voti di Sistemi e Reti dopo la correzione di una verifica, per vedere come sta andando la media in quella materia.
+
+Scenari alternativi: se lo studente prova a consultare i voti di un compagno di classe, l'operazione viene negata.
+
 **Storia: DOC-03 · Assegnare i voti**
 
 User flow:
@@ -115,6 +166,32 @@ User flow:
 Scenario principale: il Docente corregge le consegne della sua verifica e assegna un voto a ciascuno studente; ogni voto diventa visibile allo studente corrispondente.
 
 Scenari alternativi: se il Docente inserisce un voto fuori scala, il sistema rifiuta e chiede un valore valido; se il Docente prova ad assegnare un voto su una verifica non sua, l'operazione viene negata.
+
+**Storia: DOC-01 · Caricare materiale didattico**
+
+User flow:
+
+1. Il Docente effettua il login
+2. Apre la sezione materiale della propria materia e classe
+3. Carica un file con un titolo
+4. Conferma: il materiale diventa visibile agli studenti della classe
+
+Scenario principale: la Docente di Elettrotecnica carica le slide della lezione prima della lezione stessa, così gli studenti le trovano già pronte quando entrano in aula.
+
+Scenari alternativi: se il Docente non è assegnato a quella classe e materia, l'operazione viene negata; se il Docente prova a modificare un materiale caricato da un collega, l'operazione viene negata perché il materiale non è suo.
+
+**Storia: DOC-02 · Creare le proprie verifiche**
+
+User flow:
+
+1. Il Docente effettua il login
+2. Apre la sezione verifiche della propria materia e classe
+3. Inserisce titolo, data di svolgimento e contenuto
+4. Pubblica la verifica
+
+Scenario principale: il Docente crea la verifica di fine modulo con data fissata per la settimana successiva; la verifica compare subito nella lista degli studenti della classe.
+
+Scenari alternativi: se il Docente prova a modificare la verifica dopo la data di svolgimento, l'operazione viene negata (vedi decisione FR-DOM-03); se carica una verifica con lo stesso titolo di una già esistente per la stessa classe e materia, riceve un avviso di conferma prima di procedere.
 
 ## Le User stories
 
@@ -232,40 +309,126 @@ _STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei vo
 
 ## Requisiti non funzionali
 
-| id          | Famiglia       | Requisito/Requisiti     | Soglia e condizione  | Come si verifica   | Storie collegate    |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-01      | Prestazioni    | Comparsa dei materiali  | meno di 5 secondi    | Test di carico     | Stu-01, STu02,      |
-|             |                | e verifiche             | con carico di 100    |                    | Stu-03              |
-|             |                |                         | studenti             |                    |                     |
-| ---------   | ------------   | ----------------------- | -------------------- | -----------------  | ----------------    |
-| NFR-02      | Sicurezza      | Autenticazione trammite | Prima di poter usare | Verifica che il    | Dir-01              |
-|             |                | log in                  | il software bisonga  | log in sia         |                     |
-|             |                |                         | fare il log in       | funzionante        |                     |
-| ----------- | -------------  | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-03      | Usabilità      | Operazioni specifiche   | I diversi ruoli      | Prova dei diversi  | Dir(-01-02-03)      |
-|             |                | richieste               | possono effeturare   | ruoli e delle loro | Doc(-01-02-03)      |
-|             |                |                         | le loro opzioni      | funzionalita       |                     |
-|             |                |                         | "specifiche"         | specifiche         |                     |
-| ----------- | -------------  | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-04      | Disponibilità  |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-05      | Ambientale     | Dove girerà l'ambiente  | Funzionera sulla     | verificare l'host  |                     |
-|             |                |                         | rete della scuola    |                    |                     |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-06      | Supporto       | Supporto nel caso di    | l'utente potra       | verificare che     |
-|             |                | aiuto                   | contattare           | l'indirizzo sia    |
-|             |                |                         | l'indirizzo di       | corretto           |
-|             |                |                         | e riceverà una       |                    |
-|             |                |                         | risposta entro una   |                    |
-|             |                |                         | giornata lavorativa  |                    |
-| ----------- | -------------- | ----------------------- | -------------------- | ------------------ | ------------------- |
-| NFR-07      |
+| id          | Famiglia       | Requisito/Requisiti     | Soglia e condizione   | Come si verifica   | Storie collegate    |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-01      | Prestazioni    | Comparsa dei materiali  | meno di 5 secondi     | Test di carico     | Stu-01, STu02,      |
+|             |                | e verifiche             | con carico di 100     |                    | Stu-03              |
+|             |                |                         | studenti              |                    |                     |
+| ---------   | ------------   | ----------------------- | --------------------- | -----------------  | ----------------    |
+| NFR-02      | Sicurezza      | Protezione delle        | Ogni richiesta senza  | Collezione postman | Tutte le storie AC  |
+|             |                | operazioni non          | token valido o con    | con casi negativi  | "Operazione negata" |
+|             |                | autorizzate             | ruolo non permesso    | per ogni ruolo     |                     |
+|             |                |                         | riceve 401/403, mai   |                    |                     |
+|             |                |                         | dari parziali         |                    |                     |
+| ----------- | -------------  | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-03      | Usabilità      | Reperibilità del        | Uno studente del      | Osservazione       | STU-01, STU-02      |
+|             |                | materiale e delle       | primo anno trova e    | diretta durante    |                     |
+|             |                | verifiche               | apre una verifica     | il collaudo        |                     |
+|             |                |                         | assegnata senza aiuto |                    |                     |
+|             |                |                         | in al massimo 3       |                    |                     |
+|             |                |                         | tocchi                |                    |                     |
+| ----------- | -------------  | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-04      | Disponibilità  | Raggiungibilità del     | Almeno 99% di uptime  | Monitoraggio Azure | STU-02, DOC-03      |
+|             |                | sistema                 | durante l'orario      | (Application       |                     |
+|             |                |                         | scolastico (8-16:30)  | Insights / alert)  |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-05      | Ambientale     | Funzionamento su reti   | Il sistema resta      | Test manuale su    | STU-02              |
+|             |                | diverse                 | utilizzabile sia su   | connessione        |                     |
+|             |                |                         | Wi-Fi scolastico      | throttled/simulata |                     |
+|             |                |                         | condiviso sia su rete |                    |                     |
+|             |                |                         | mobile personale, con |                    |                     |
+|             |                |                         | payload leggeri nei   |                    |                     |
+|             |                |                         | picchi                |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-06      | Supporto       | Assistenza in caso di   | l'utente potra        | verifica che       |                     |
+|             |                | problemi                | contattare            | l'indirizzo sia    |                     |
+|             |                |                         | l'indirizzo di        | attivo e           |                     |
+|             |                |                         | e riceverà una        | monitorato         |                     |
+|             |                |                         | risposta entro una    |                    |                     |
+|             |                |                         | giornata lavorativa   |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-07      | Scalabilità    | Tenuta nel picco delle  | Il sistema scala      | Test di carico a   | STU-02              |
+|             |                | 9:00                    | automaticamente       | gradini, confronto |                     |
+|             |                |                         | le repliche senza     | normale vs picco   |                     |
+|             |                |                         | intervento manuale,   |                    |                     |
+|             |                |                         | con degrado del tempo |                    |                     |
+|             |                |                         | di risposta non oltre |                    |                     |
+|             |                |                         | il 20% rispetto al    |                    |                     |
+|             |                |                         | carico normale        |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-08      | Conformità     | Trattamento dati di     | Dati residenti in     | Revisione del      | DIR-01, DIR-02,     |
+|             |                | minorenni               | regione UE            | codice e della     | STU-03              |
+|             |                |                         | (Italy North),        | configurazione     |                     |
+|             |                |                         | password sempre       | regione/log        |                     |
+|             |                |                         | hashate, nessun dato  |                    |                     |
+|             |                |                         | sensibile loggato in  |                    |                     |
+|             |                |                         | in chiaro             |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-09      | Interazione    | Dialogo con il servizio | Se il servizio        | Test con servizio  | DIR-01, DIR-02      |
+|             |                | email esterno           | esterno non risponde  | email              |                     |
+|             |                |                         | entro 5 secondi,      | disabilitato/      |                     |
+|             |                |                         | la creazione account  | simulato in errore |                     |
+|             |                |                         | non viene bloccata    |                    |                     |
+|             |                |                         | (FR-DOM-05)           |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-10      | Usabilità      | Anteprima del materiale | Per i formati PDF e   | Test manuale su    | STU-01              |
+|             |                | prima del download      | immagine, lo studente | materiali di prova |                     |
+|             |                | (emerso dall'intervista | vede un'anteprima in  | nei formati più    |                     |
+|             |                | a Studente 1)           | pagina senza dover    | comuni             |                     |
+|             |                |                         | scaricare il file, in |                    |                     |
+|             |                |                         | meno di 2 secondi     |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
+| NFR-11      | Usabilità      | Indicatore di contenuti | Lo studente vede un   | Test manuale:      | STU-01, STU-03      |
+|             |                | non ancora visti        | indicatore (badge) su | login dopo         |                     |
+|             |                | (emerso dall'intervista | materiale/voti        | l'aggiunta di un   |                     |
+|             |                | a Studente 3)           | aggiunti dopo il suo  | nuovo voto o       |                     |
+|             |                |                         | ultimo accesso,        | materiale          |                     |
+|             |                |                         | calcolato lato        |                    |                     |
+|             |                |                         | server al login —     |                    |                     |
+|             |                |                         | niente notifiche push |                    |                     |
+|             |                |                         | (fuori scope per      |                    |                     |
+|             |                |                         | VIN-01/VIN-03)         |                    |                     |
+| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
 
-| nfr-08
+# Requisiti impliciti
 
-# REQUISITI IMPLICI
+Intervista fatta a tre collaudatori del primo anno, identificati solo con un numero per non riportare dati personali di minori (coerente con NFR-08 sulla conformità).
 
-studente 1
+| Chi avete intervistato | Cosa ha detto | Requisito che ne avete ricavato |
+| --- | --- | --- |
+| Studente 1 (classe 1ª, collaudatore) | "Vorrei poter scaricare le slide e le tabelle del docente in un formato leggibile, e vedere un'anteprima prima di scaricarle, come su Google Drive" | NFR-10 — anteprima del materiale didattico prima del download |
+| Studente 2 (classe 1ª, collaudatore) | "Vorrei vedere il mio andamento in una materia e il voto con la descrizione di quale verifica era" | Nessun nuovo NFR: conferma indipendente di STU-03 AC-01, già previsto nel documento |
+| Studente 3 (classe 1ª, collaudatore) | "Vorrei essere avvisato nel menu o in qualche modo se è stato aggiunto qualcosa, tipo nuovi voti o materiale" | NFR-11 — indicatore di contenuti non ancora visti (scope ridotto rispetto a notifiche push vere, vedi nota sotto la tabella NFR) |
+
+## Assunzioni, vincoli e dipendenze
+
+### Assunzioni
+
+| ID | Assunzione | Cosa succede se è falsa |
+| --- | --- | --- |
+| ASS-01 | La scuola ha 400 studenti, 46 docenti, 18-20 classi | Il dimensionamento (Container Apps, database, costi) va rifatto da zero |
+| ASS-02 | Nel picco delle 9:00 sono concorrenti 150-200 utenti (6-8 classi che iniziano una verifica insieme) | NFR-01/NFR-07 e la configurazione di autoscaling vanno rivisti; il database potrebbe non reggere senza upgrade |
+| ASS-03 | La connettività è mista: Wi-Fi scolastico condiviso in aula, rete personale fuori orario | NFR-05 va rivisto; con solo Wi-Fi a banda limitata servirebbe ottimizzare ulteriormente i payload |
+| ASS-04 | Un docente insegna più materie in più classi, ma su ogni combinazione materia+classe è assegnato un solo docente (nessuna compresenza) | Il modello `ASSEGNAZIONE` andrebbe esteso per permettere più docenti sulla stessa materia/classe |
+| ASS-05 | Orario scolastico: Lun/Mer/Ven 8:00-13:30, Mar/Gio 8:00-16:30 | La finestra di disponibilità garantita (NFR-04) e le fasce di manutenzione pianificata vanno ricalcolate |
+
+### Vincoli
+
+| ID | Vincolo | Da dove viene |
+| --- | --- | --- |
+| VIN-01 | Un solo sviluppatore sul progetto (non in team di 2) | Scelta dichiarata a inizio progetto |
+| VIN-02 | Stack tecnologico limitato a quanto già noto (Node.js, React, MySQL/MariaDB) per restare nei tempi | Competenze dichiarate dallo sviluppatore |
+| VIN-03 | Budget cloud limitato ai crediti gratuiti disponibili (es. Azure for Students) | Traccia del progetto / risorse economiche dello studente |
+| VIN-04 | Consegna e collaudo entro il calendario scolastico del corso | Traccia del progetto |
+
+### Dipendenze
+
+| ID | Dipendenza | Serve entro | Chi se ne occupa |
+| --- | --- | --- | --- |
+| DIP-01 | Account Azure attivo con credito disponibile | Prima dell'inizio dello sviluppo | Matteo Barbazza |
+| DIP-02 | Servizio email esterno attivo e dominio verificato (Azure Communication Services o SendGrid) | Prima del primo invio di credenziali / collaudo | Matteo Barbazza |
+| DIP-03 | Disponibilità del Direttore e di un docente reale per fornire dati di test realistici | Prima del collaudo con il primo anno | Direttore, docente del corso |
+| DIP-04 | Dominio o sottodominio pubblico per Static Web Apps e Container Apps | Prima del deployment in produzione | Matteo Barbazza |
 
 # Seconda parte - Il come
 
@@ -327,228 +490,3 @@ _Fine quadrimestre_
 | Servizi cloud    | Azure Container Apps (backend), Azure Database for MySQL Flexible Server, Azure Blob Storage (materiale), Azure Static Web Apps (frontend) | Azure Kubernetes Service (AKS), Azure Container Instances (ACI) | AKS è sovradimensionato per un solo sviluppatore (alta complessità operativa); ACI non scala e non è adatto a un sistema in produzione con utenti reali. Container Apps scala automaticamente nel picco delle 9:00 e resta vicino al piano gratuito per un carico di questa scala |
 | Regione          | Italy North                                                                                                                                | West Europe                                                     | Più vicina fisicamente alla scuola (minore latenza) e residenza dei dati in Italia, rilevante per dati di minorenni (voti, anagrafiche)                                                                                                                                           |
 | Servizio esterno | Azure Communication Services – Email (alternativa: SendGrid)                                                                               | —                                                               | Invio email delle credenziali ai nuovi account; resta dentro l'ecosistema Azure già scelto. Gestione del fallimento: vedi decisione FR-DOM-05                                                                                                                                     |
-
-## Dimensionamento e costi
-
-| Componente         | Servizio                                 | Taglia                         | Istanze                | Costo mensile stimato                                                                                                                                     |
-| ------------------ | ---------------------------------------- | ------------------------------ | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Backend            | Azure Container Apps (Consumption)       | 0.5 vCPU / 1 GiB               | Autoscale 1-3 repliche | ~10 € (il piano gratuito copre 180.000 secondi vCPU, 360.000 secondi GiB e 2 milioni di richieste/mese; il traffico stimato resta vicino a questa soglia) |
-| Database           | Azure Database for MySQL Flexible Server | Burstable B1ms (1 vCPU, 2 GiB) | 1                      | ~15 € (regione Italy North)                                                                                                                               |
-| Storage materiale  | Blob Storage (Hot, LRS)                  | 5-10 GB                        | —                      | <1 €                                                                                                                                                      |
-| Frontend           | Azure Static Web Apps                    | Piano gratuito                 | —                      | 0 €                                                                                                                                                       |
-| Servizio email     | Azure Communication Services / SendGrid  | Piano gratuito                 | —                      | 0 € (ai volumi di una scuola)                                                                                                                             |
-| **Totale stimato** |                                          |                                |                        | **~15-25 €/mese**                                                                                                                                         |
-
-**Strategia di scalabilità**
-
-- Verticale: se il database diventa il collo di bottiglia, upgrade da B1ms a B2s (2 vCPU, 4 GiB) senza cambiare codice.
-- Orizzontale automatica: Container Apps scala le repliche in base alla concorrenza HTTP, in particolare nel picco delle 9:00.
-- Se gli studenti fossero il doppio (800): il database Burstable rischia di non bastare nei picchi, da valutare l'upgrade a General Purpose.
-- Se gli studenti fossero la metà: si resta comodamente dentro il piano gratuito di Container Apps.
-
-_Nota: prezzi verificati a ottobre 2026 su azure.microsoft.com; soggetti a variazione — ricontrollare sul calcolatore ufficiale prima della consegna._
-
-## Persistenza e modellazione (diagramma ER)
-
-> Questa sezione è ancora da completare con identificatori, i tre modelli (DB/dominio/API) e la normalizzazione. Il diagramma entità-relazioni è già definito:
-
-```mermaid
-erDiagram
-  UTENTE ||--o{ ASSEGNAZIONE : "insegna come docente"
-  MATERIA ||--o{ ASSEGNAZIONE : "riguarda"
-  CLASSE ||--o{ ASSEGNAZIONE : "per classe"
-  ASSEGNAZIONE ||--o{ MATERIALE : "carica"
-  ASSEGNAZIONE ||--o{ VERIFICA : "crea"
-  CLASSE ||--o{ ISCRIZIONE : "accoglie nel tempo"
-  UTENTE ||--o{ ISCRIZIONE : "e iscritto come studente"
-  VERIFICA ||--o{ CONSEGNA : "riceve"
-  UTENTE ||--o{ CONSEGNA : "consegna come studente"
-  CONSEGNA ||--o| VOTO : "riceve"
-
-  UTENTE {
-    int id PK
-    string nome
-    string email UK
-    string ruolo
-  }
-  CLASSE {
-    int id PK
-    string nome
-    string indirizzo
-  }
-  MATERIA {
-    int id PK
-    string nome
-  }
-  ASSEGNAZIONE {
-    int id PK
-    int docente_id FK
-    int materia_id FK
-    int classe_id FK
-  }
-  ISCRIZIONE {
-    int id PK
-    int studente_id FK
-    int classe_id FK
-    date data_inizio
-    date data_fine
-  }
-  MATERIALE {
-    int id PK
-    int assegnazione_id FK
-    string titolo
-    string file_url
-  }
-  VERIFICA {
-    int id PK
-    int assegnazione_id FK
-    string titolo
-    date data_svolgimento
-  }
-  CONSEGNA {
-    int id PK
-    int verifica_id FK
-    int studente_id FK
-    date data_consegna
-  }
-  VOTO {
-    int id PK
-    int consegna_id FK
-    float valore
-  }
-```
-
-Note di modellazione:
-
-- `ASSEGNAZIONE` lega docente+materia+classe in un'unica entità: materiale e verifiche puntano a questa, così l'autorizzazione si verifica con una sola join.
-- `ISCRIZIONE` (non un campo diretto su `UTENTE`) implementa la decisione FR-DOM-02: ogni riga è un periodo di appartenenza a una classe, con `data_fine` nulla per quella attiva.
-- `CONSEGNA` è separata da `VOTO`: rappresenta l'atto di consegnare (serve per FR-DOM-04 e per bloccare il doppio invio), il voto arriva dopo. Il legame studente-verifica-docente richiesto dalla traccia è soddisfatto transitivamente: `VOTO → CONSEGNA → VERIFICA → ASSEGNAZIONE → docente`.
-
-## API
-
-### Le risorse REST
-
-| Risorsa                         | Rappresenta                                             |
-| ------------------------------- | ------------------------------------------------------- |
-| `/api/auth`                     | Login e token                                           |
-| `/api/docenti`, `/api/studenti` | Creazione e gestione account (CRUD limitato)            |
-| `/api/classi`                   | Classi e composizione (studenti/docenti)                |
-| `/api/assegnazioni`             | Il legame docente+materia+classe                        |
-| `/api/materiali`                | Materiale didattico, annidato sotto un'assegnazione     |
-| `/api/verifiche`                | Verifiche, annidate sotto un'assegnazione               |
-| `/api/consegne`                 | Lo svolgimento di una verifica da parte di uno studente |
-| `/api/voti`                     | Il voto assegnato a una consegna                        |
-
-### Il contratto delle API principali
-
-**Autenticazione**
-
-| Verbo  | Route             | Chi può chiamarla                 | Payload                                 | Risposte                                  |
-| ------ | ----------------- | --------------------------------- | --------------------------------------- | ----------------------------------------- |
-| `POST` | `/api/auth/login` | Chiunque abbia credenziali valide | `{ "email": "...", "password": "..." }` | `200` con token, `401` credenziali errate |
-
-**Utenti**
-
-| Verbo  | Route                                            | Chi può chiamarla    | Payload                                               | Risposte                                               |
-| ------ | ------------------------------------------------ | -------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
-| `POST` | `/api/docenti`                                   | Direttore            | `{ "nome": "...", "cognome": "...", "email": "..." }` | `201`, `400` validazione, `403`, `409` email duplicata |
-| `POST` | `/api/studenti`                                  | Direttore            | come sopra                                            | `201`, `400`, `403`, `409`                             |
-| `GET`  | `/api/docenti?page=1&pageSize=20`                | Direttore            | —                                                     | `200` paginato                                         |
-| `GET`  | `/api/studenti?page=1&pageSize=20&classe_id=...` | Direttore            | —                                                     | `200` paginato                                         |
-| `GET`  | `/api/utenti/me`                                 | Chiunque autenticato | —                                                     | `200` profilo proprio                                  |
-
-**Classi**
-
-| Verbo    | Route                                    | Chi può chiamarla                                                  | Payload                                              | Risposte                                                             |
-| -------- | ---------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------- | -------------------------------------------------------------------- |
-| `POST`   | `/api/classi`                            | Direttore                                                          | `{ "nome": "...", "indirizzo": "..." }`              | `201`, `400`, `403`                                                  |
-| `GET`    | `/api/classi?page=1&pageSize=20`         | Direttore (tutte); Docente (solo le proprie, filtrate server-side) | —                                                    | `200` paginato                                                       |
-| `GET`    | `/api/classi/{id}`                       | Direttore; Docente assegnato; Studente iscritto                    | —                                                    | `200`, `403`, `404`                                                  |
-| `POST`   | `/api/classi/{id}/studenti`              | Direttore                                                          | `{ "studente_id": ... }` → crea una `ISCRIZIONE`     | `201`, `403`, `409` se già iscritto e non gestito come trasferimento |
-| `DELETE` | `/api/classi/{id}/studenti/{studenteId}` | Direttore                                                          | — (chiude l'iscrizione corrente, `data_fine = oggi`) | `204`, `403`, `404`                                                  |
-
-**Assegnazioni (docente + materia + classe)**
-
-| Verbo    | Route                              | Chi può chiamarla                    | Payload                                                      | Risposte                          |
-| -------- | ---------------------------------- | ------------------------------------ | ------------------------------------------------------------ | --------------------------------- |
-| `POST`   | `/api/assegnazioni`                | Direttore                            | `{ "docente_id": ..., "materia_id": ..., "classe_id": ... }` | `201`, `403`, `409` se già esiste |
-| `GET`    | `/api/assegnazioni?docente_id=...` | Direttore; Docente (solo le proprie) | —                                                            | `200` paginato                    |
-| `DELETE` | `/api/assegnazioni/{id}`           | Direttore                            | —                                                            | `204`, `403`, `404`               |
-
-**Materiale didattico**
-
-| Verbo    | Route                                                 | Chi può chiamarla                                              | Payload                                  | Risposte                                 |
-| -------- | ----------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| `POST`   | `/api/assegnazioni/{assegnazioneId}/materiali`        | Docente proprietario dell'assegnazione                         | `{ "titolo": "...", "file_url": "..." }` | `201`, `403` se l'assegnazione non è sua |
-| `GET`    | `/api/assegnazioni/{assegnazioneId}/materiali?page=1` | Studente iscritto alla classe; Docente proprietario; Direttore | —                                        | `200` paginato, `403`                    |
-| `PUT`    | `/api/materiali/{id}`                                 | Docente proprietario del materiale                             | `{ "titolo": "...", "file_url": "..." }` | `200`, `403`                             |
-| `DELETE` | `/api/materiali/{id}`                                 | Docente proprietario del materiale                             | —                                        | `204`, `403`                             |
-
-**Verifiche**
-
-| Verbo    | Route                                                 | Chi può chiamarla                                         | Payload                                                              | Risposte                          |
-| -------- | ----------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------- |
-| `POST`   | `/api/assegnazioni/{assegnazioneId}/verifiche`        | Docente proprietario dell'assegnazione                    | `{ "titolo": "...", "data_svolgimento": "...", "contenuto": "..." }` | `201`, `403`                      |
-| `GET`    | `/api/assegnazioni/{assegnazioneId}/verifiche?page=1` | Studente iscritto; Docente proprietario; Direttore        | —                                                                    | `200` paginato                    |
-| `GET`    | `/api/verifiche/{id}`                                 | come sopra                                                | —                                                                    | `200`, `403`, `404`               |
-| `PUT`    | `/api/verifiche/{id}`                                 | Docente proprietario, solo se prima di `data_svolgimento` | `{ "titolo": "...", "contenuto": "..." }`                            | `200`, `403`, `409` se già svolta |
-| `DELETE` | `/api/verifiche/{id}`                                 | Docente proprietario                                      | —                                                                    | `204`, `403`                      |
-
-**Consegne**
-
-| Verbo  | Route                                 | Chi può chiamarla                                              | Payload                 | Risposte                                            |
-| ------ | ------------------------------------- | -------------------------------------------------------------- | ----------------------- | --------------------------------------------------- |
-| `POST` | `/api/verifiche/{id}/consegne`        | Studente della classe associata, solo se non ha già consegnato | `{ "risposte": {...} }` | `201`, `403` classe sbagliata, `409` già consegnato |
-| `GET`  | `/api/verifiche/{id}/consegne?page=1` | Docente proprietario; Direttore                                | —                       | `200` paginato                                      |
-| `GET`  | `/api/verifiche/{id}/consegne/me`     | Studente che ha consegnato                                     | —                       | `200`, `404` se non ancora consegnata               |
-
-**Voti**
-
-| Verbo   | Route                                           | Chi può chiamarla                                            | Payload             | Risposte                                  |
-| ------- | ----------------------------------------------- | ------------------------------------------------------------ | ------------------- | ----------------------------------------- |
-| `POST`  | `/api/consegne/{id}/voto`                       | Docente proprietario della verifica collegata                | `{ "valore": 7.5 }` | `201`, `400` fuori scala, `403`           |
-| `PATCH` | `/api/voti/{id}`                                | Docente proprietario                                         | `{ "valore": 8 }`   | `200`, `400`, `403`                       |
-| `GET`   | `/api/studenti/{id}/voti?materia_id=...&page=1` | Lo studente stesso; Direttore; Docente che ha dato quel voto | —                   | `200` paginato, raggruppabile per materia |
-
-**Dashboard del Direttore**
-
-| Verbo | Route            | Chi può chiamarla | Risposte                                                                                         |
-| ----- | ---------------- | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `GET` | `/api/dashboard` | Direttore         | `200` — lettura aggregata/denormalizzata (classi con conteggio studenti, media voti per materia) |
-
-### Errori, validazione e paginazione
-
-**Formato uniforme degli errori**
-
-```json
-{
-  "errore": {
-    "codice": "EMAIL_GIA_REGISTRATA",
-    "messaggio": "Esiste già un utente con questa email.",
-    "campo": "email"
-  }
-}
-```
-
-Stesso schema per ogni errore 4xx/5xx, così il frontend gestisce gli errori con un solo parser.
-
-**Paginazione**
-
-Parametri `page` (default 1) e `pageSize` (default 20, max 100), risposta nel formato:
-
-```json
-{
-  "data": [ ... ],
-  "page": 1,
-  "pageSize": 20,
-  "total": 134,
-  "totalPages": 7
-}
-```
-
-### Note da chiudere prima della validazione
-
-- Ogni `403` elencato sopra è il controllo lato backend richiesto dalla traccia: il frontend può nascondere il bottone, ma l'API deve rifiutare comunque la richiesta.
-- Decisione ancora aperta: cosa restituisce `PUT /api/verifiche/{id}` dopo la data di svolgimento (qui gestito come `409`, da confermare e motivare nel testo).
-- Decisione ancora aperta: se serve un endpoint dedicato per il trasferimento di uno studente (più chiaro nei log di audit) invece di `POST`+`DELETE` sulla stessa risorsa classe.
-- Manca una `DELETE` su `/docenti` e `/studenti`: da decidere se prevedere una disattivazione (soft delete) invece di una cancellazione definitiva, per non rompere l'integrità referenziale con verifiche e voti già collegati.

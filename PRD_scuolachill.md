@@ -23,9 +23,9 @@
 
 #### Perché esiste ScuolaChill
 
-**Dal lato business.**: facilita i tre utenti (Direttore, Docente, Studente) allo svolgimento della vita scolastica/lavorativa con gestione e organizzazione delle varie attività e scolastiche
+**Dal lato business**: facilita i tre utenti (Direttore, Docente, Studente) nello svolgimento della vita scolastica, con gestione e organizzazione delle varie attività scolastiche
 
-**Dal lato tecnico**: Velocizza e rende efficente l'organizzazione di varie funzionalità
+**Dal lato tecnico**: velocizza e rende efficiente l'organizzazione di varie funzionalità
 
 #### Cosa è incluso
 
@@ -51,7 +51,7 @@
 
 ## Destinatari e contesto d'uso
 
-#### La scuola che avete immgaginato
+#### La scuola che avete immaginato
 
 il software è progettato per l'istituto superiore don bosco san donà di piave "SFB don bosco (istituto tecnico)".
 
@@ -90,6 +90,32 @@ Scenario principale: il Direttore crea l'account di un nuovo docente assunto a i
 
 Scenari alternativi: se l'email inserita è già registrata, il sistema mostra l'errore e non crea nulla; il Direttore corregge l'email e riprova.
 
+**Storia: DIR-03 · Creare classi e comporle**
+
+User flow:
+
+1. Il Direttore effettua il login
+2. Apre la sezione "Classi" e crea una nuova classe
+3. Assegna gli studenti alla classe
+4. Assegna un docente a una materia per quella classe
+
+Scenario principale: a inizio anno il Direttore crea la classe 1A Informatica, vi assegna 24 studenti e assegna il docente di Sistemi e Reti per quella classe e quella materia.
+
+Scenari alternativi: se prova ad assegnare uno studente già iscritto a un'altra classe, il sistema chiede conferma del trasferimento prima di procedere (vedi decisione FR-DOM-02); se il docente da assegnare non ha ancora un account, il Direttore deve prima crearlo (DIR-01).
+
+**Storia: DIR-04 · Vedere tutto**
+
+User flow:
+
+1. Il Direttore effettua il login
+2. Apre la dashboard
+3. Consulta classi, docenti e andamento voti in forma aggregata
+4. Filtra o scorre le pagine dei risultati se necessario
+
+Scenario principale: il Direttore apre la dashboard il lunedì mattina per avere un quadro generale prima dell'inizio delle lezioni, e vede il numero di studenti per classe e la media dei voti per materia.
+
+Scenari alternativi: se un Docente o uno Studente prova ad accedere alla stessa vista, l'operazione viene negata; se gli elenchi superano la dimensione di una pagina, i risultati vengono paginati automaticamente.
+
 **Storia: STU-02 · Svolgere una verifica**
 
 User flow:
@@ -103,6 +129,31 @@ Scenario principale: uno studente apre la verifica di Sistemi e Reti alle 9:00 i
 
 Scenari alternativi: se lo studente ha già consegnato, il sistema nega un secondo tentativo; se la connessione cade durante lo svolgimento, al rientro lo studente ritrova le risposte già date (vedi decisione FR-DOM-04).
 
+**Storia: STU-01 · Consultare il materiale didattico**
+
+User flow:
+
+1. Lo studente effettua il login
+2. Apre la materia di interesse della propria classe
+3. Consulta l'elenco dei materiali caricati dal docente
+4. Apre o scarica il materiale desiderato
+
+Scenario principale: uno studente apre la sezione di Matematica prima di un'interrogazione per rivedere le slide caricate dal docente.
+
+Scenari alternativi: se lo studente prova ad accedere al materiale di una classe diversa dalla propria, l'operazione viene negata.
+
+**Storia: STU-03 · Consultare i propri voti**
+
+User flow:
+
+1. Lo studente effettua il login
+2. Apre la sezione "Voti"
+3. Visualizza i voti raggruppati per materia, con la media
+
+Scenario principale: uno studente controlla i propri voti di Sistemi e Reti dopo la correzione di una verifica, per vedere come sta andando la media in quella materia.
+
+Scenari alternativi: se lo studente prova a consultare i voti di un compagno di classe, l'operazione viene negata.
+
 **Storia: DOC-03 · Assegnare i voti**
 
 User flow:
@@ -115,6 +166,32 @@ User flow:
 Scenario principale: il Docente corregge le consegne della sua verifica e assegna un voto a ciascuno studente; ogni voto diventa visibile allo studente corrispondente.
 
 Scenari alternativi: se il Docente inserisce un voto fuori scala, il sistema rifiuta e chiede un valore valido; se il Docente prova ad assegnare un voto su una verifica non sua, l'operazione viene negata.
+
+**Storia: DOC-01 · Caricare materiale didattico**
+
+User flow:
+
+1. Il Docente effettua il login
+2. Apre la sezione materiale della propria materia e classe
+3. Carica un file con un titolo
+4. Conferma: il materiale diventa visibile agli studenti della classe
+
+Scenario principale: la Docente di Elettrotecnica carica le slide della lezione prima della lezione stessa, così gli studenti le trovano già pronte quando entrano in aula.
+
+Scenari alternativi: se il Docente non è assegnato a quella classe e materia, l'operazione viene negata; se il Docente prova a modificare un materiale caricato da un collega, l'operazione viene negata perché il materiale non è suo.
+
+**Storia: DOC-02 · Creare le proprie verifiche**
+
+User flow:
+
+1. Il Docente effettua il login
+2. Apre la sezione verifiche della propria materia e classe
+3. Inserisce titolo, data di svolgimento e contenuto
+4. Pubblica la verifica
+
+Scenario principale: il Docente crea la verifica di fine modulo con data fissata per la settimana successiva; la verifica compare subito nella lista degli studenti della classe.
+
+Scenari alternativi: se il Docente prova a modificare la verifica dopo la data di svolgimento, l'operazione viene negata (vedi decisione FR-DOM-03); se carica una verifica con lo stesso titolo di una già esistente per la stessa classe e materia, riceve un avviso di conferma prima di procedere.
 
 ## Le User stories
 
@@ -232,46 +309,59 @@ _STU-03 — Consultare i propri voti_: come Studente voglio consultare i miei vo
 
 ## Requisiti non funzionali
 
-| id          | Famiglia       | Requisito/Requisiti     | Soglia e condizione   | Come si verifica   | Storie collegate    |
-| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
-| NFR-01      | Prestazioni    | Comparsa dei materiali  | meno di 5 secondi     | Test di carico     | Stu-01, STu02,      |
-|             |                | e verifiche             | con carico di 100     |                    | Stu-03              |
-|             |                |                         | studenti              |                    |                     |
-| ---------   | ------------   | ----------------------- | --------------------- | -----------------  | ----------------    |
-| NFR-02      | Sicurezza      | Protezione delle        | Ogni richiesta senza  | Collezione postman | Tutte le storie AC  |
-|             |                | operazioni non          | token valido o con    | con casi negativi  | "Operazione negata" |
-|             |                | autorizzate             | ruolo non permesso    | per ogni ruolo     |                     |
-|             |                |                         | riceve 401/403, mai   |                    |                     |
-|             |                |                         | dari parziali         |                    |                     |
-| ----------- | -------------  | ----------------------- | --------------------- | ------------------ | ------------------- |
-| NFR-03      | Usabilità      | Reperibilità del        | Uno studente del      | Osservazione       | STU-01, STU-02      |
-|             |                | materiale e delle       | primo anno trova e    | diretta durante    |                     |
-|             |                | verifiche               | apre una verifica     | il collaudo        |                     |
-|             |                |                         | assegnata senza aiuto |                    |                     |
-|             |                |                         | in al massimo 3       |                    |                     |
-|             |                |                         | tocchi                |                    |                     |
-| ----------- | -------------  | ----------------------- | --------------------- | ------------------ | ------------------- |
-| NFR-04      | Disponibilità  | Raggiungibilità del     | Almeno 99% di uptime  | Monitoraggio Azure | STU-02, DOC-03      |
-|             |                | sistema                 | durante l'orario      | (Application       |
-|             |                |                         | scolastico (8-16:30)  | Insights / alert)  |
-| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
-| NFR-05      | Ambientale     | Dove girerà l'ambiente  | Funzionera sulla      | verificare l'host  |                     |
-|             |                |                         | rete della scuola     |                    |                     |
-| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
-| NFR-06      | Supporto       | Supporto nel caso di    | l'utente potra        | verificare che     |
-|             |                | aiuto                   | contattare            | l'indirizzo sia    |
-|             |                |                         | l'indirizzo di        | corretto           |
-|             |                |                         | e riceverà una        |                    |
-|             |                |                         | risposta entro una    |                    |
-|             |                |                         | giornata lavorativa   |                    |
-| ----------- | -------------- | ----------------------- | --------------------- | ------------------ | ------------------- |
-| NFR-07      |
+| ID | Famiglia | Requisito | Soglia e condizione | Come si verifica | Storie collegate |
+| --- | --- | --- | --- | --- | --- |
+| NFR-01 | Prestazioni | Comparsa dei materiali e delle verifiche | Meno di 5 secondi con un carico di 100 studenti | Test di carico | STU-01, STU-02, STU-03 |
+| NFR-02 | Sicurezza | Protezione delle operazioni non autorizzate | Ogni richiesta senza token valido o con ruolo non permesso riceve 401/403, mai dati parziali | Collezione Postman con casi negativi per ogni ruolo | Tutte le storie con AC "operazione negata" |
+| NFR-03 | Usabilità | Reperibilità del materiale e delle verifiche | Uno studente del primo anno trova e apre una verifica assegnata senza aiuto, in al massimo 3 tocchi | Osservazione diretta durante il collaudo | STU-01, STU-02 |
+| NFR-04 | Disponibilità | Raggiungibilità del sistema | Almeno 99% di uptime durante l'orario scolastico (8:00-16:30) | Monitoraggio Azure (Application Insights / alert) | STU-02, DOC-03 |
+| NFR-05 | Ambientale | Funzionamento su reti diverse | Il sistema resta utilizzabile sia su Wi-Fi scolastico condiviso sia su rete mobile personale, con payload leggeri nei picchi | Test manuale su connessione throttled/simulata | STU-02 |
+| NFR-06 | Supporto | Assistenza in caso di problemi | L'utente può contattare l'indirizzo email di supporto e riceve una risposta entro una giornata lavorativa | Verifica che l'indirizzo sia attivo e monitorato | — |
+| NFR-07 | Scalabilità | Tenuta nel picco delle 9:00 | Il sistema scala automaticamente le repliche senza intervento manuale, con degrado del tempo di risposta non oltre il 20% rispetto al carico normale | Test di carico a gradini, confronto normale vs picco | STU-02 |
+| NFR-08 | Conformità | Trattamento dati di minorenni | Dati residenti in regione UE (Italy North), password sempre hashate, nessun dato sensibile loggato in chiaro | Revisione del codice e della configurazione regione/log | DIR-01, DIR-02, STU-03 |
+| NFR-09 | Interazione | Dialogo con il servizio email esterno | Se il servizio esterno non risponde entro 5 secondi, la creazione account non viene bloccata (FR-DOM-05) | Test con servizio email disabilitato/simulato in errore | DIR-01, DIR-02 |
+| NFR-10 | Usabilità | Anteprima del materiale prima del download (emerso dall'intervista a Studente 1) | Per i formati PDF e immagine, lo studente vede un'anteprima in pagina senza dover scaricare il file, in meno di 2 secondi | Test manuale su materiali di prova nei formati più comuni | STU-01 |
+| NFR-11 | Usabilità | Indicatore di contenuti non ancora visti (emerso dall'intervista a Studente 3) | Lo studente vede un indicatore (badge) su materiale/voti aggiunti dopo il suo ultimo accesso, calcolato lato server al login — niente notifiche push (fuori scope per VIN-01/VIN-03) | Test manuale: login dopo l'aggiunta di un nuovo voto o materiale | STU-01, STU-03 |
 
-| nfr-08
+# Requisiti impliciti
 
-# REQUISITI IMPLICI
+Intervista fatta a tre collaudatori del primo anno, identificati solo con un numero per non riportare dati personali di minori (coerente con NFR-08 sulla conformità).
 
-studente 1
+| Chi avete intervistato | Cosa ha detto | Requisito che ne avete ricavato |
+| --- | --- | --- |
+| Studente 1 (classe 1ª, collaudatore) | "Vorrei poter scaricare le slide e le tabelle del docente in un formato leggibile, e vedere un'anteprima prima di scaricarle, come su Google Drive" | NFR-10 — anteprima del materiale didattico prima del download |
+| Studente 2 (classe 1ª, collaudatore) | "Vorrei vedere il mio andamento in una materia e il voto con la descrizione di quale verifica era" | Nessun nuovo NFR: conferma indipendente di STU-03 AC-01, già previsto nel documento |
+| Studente 3 (classe 1ª, collaudatore) | "Vorrei essere avvisato nel menu o in qualche modo se è stato aggiunto qualcosa, tipo nuovi voti o materiale" | NFR-11 — indicatore di contenuti non ancora visti (scope ridotto rispetto a notifiche push vere, vedi nota sotto la tabella NFR) |
+
+## Assunzioni, vincoli e dipendenze
+
+### Assunzioni
+
+| ID | Assunzione | Cosa succede se è falsa |
+| --- | --- | --- |
+| ASS-01 | La scuola ha 400 studenti, 46 docenti, 18-20 classi | Il dimensionamento (Container Apps, database, costi) va rifatto da zero |
+| ASS-02 | Nel picco delle 9:00 sono concorrenti 150-200 utenti (6-8 classi che iniziano una verifica insieme) | NFR-01/NFR-07 e la configurazione di autoscaling vanno rivisti; il database potrebbe non reggere senza upgrade |
+| ASS-03 | La connettività è mista: Wi-Fi scolastico condiviso in aula, rete personale fuori orario | NFR-05 va rivisto; con solo Wi-Fi a banda limitata servirebbe ottimizzare ulteriormente i payload |
+| ASS-04 | Un docente insegna più materie in più classi, ma su ogni combinazione materia+classe è assegnato un solo docente (nessuna compresenza) | Il modello `ASSEGNAZIONE` andrebbe esteso per permettere più docenti sulla stessa materia/classe |
+| ASS-05 | Orario scolastico: Lun/Mer/Ven 8:00-13:30, Mar/Gio 8:00-16:30 | La finestra di disponibilità garantita (NFR-04) e le fasce di manutenzione pianificata vanno ricalcolate |
+
+### Vincoli
+
+| ID | Vincolo | Da dove viene |
+| --- | --- | --- |
+| VIN-01 | Un solo sviluppatore sul progetto (non in team di 2) | Scelta dichiarata a inizio progetto |
+| VIN-02 | Stack tecnologico limitato a quanto già noto (Node.js, React, MySQL/MariaDB) per restare nei tempi | Competenze dichiarate dallo sviluppatore |
+| VIN-03 | Budget cloud limitato ai crediti gratuiti disponibili (es. Azure for Students) | Traccia del progetto / risorse economiche dello studente |
+| VIN-04 | Consegna e collaudo entro il calendario scolastico del corso | Traccia del progetto |
+
+### Dipendenze
+
+| ID | Dipendenza | Serve entro | Chi se ne occupa |
+| --- | --- | --- | --- |
+| DIP-01 | Account Azure attivo con credito disponibile | Prima dell'inizio dello sviluppo | Matteo Barbazza |
+| DIP-02 | Servizio email esterno attivo e dominio verificato (Azure Communication Services o SendGrid) | Prima del primo invio di credenziali / collaudo | Matteo Barbazza |
+| DIP-03 | Disponibilità del Direttore e di un docente reale per fornire dati di test realistici | Prima del collaudo con il primo anno | Direttore, docente del corso |
+| DIP-04 | Dominio o sottodominio pubblico per Static Web Apps e Container Apps | Prima del deployment in produzione | Matteo Barbazza |
 
 # Seconda parte - Il come
 
@@ -294,33 +384,15 @@ _Fine quadrimestre_
 - Utenti concorrenti stimati: 80-120
 - più o meno 40 docenti inseriscono voti in parallelo, più studenti che controllano subito dopo
 
-#
-
-#
-
 ### Profilo di carico
 
-| Operazione | Frequente?  | Pesante?             | Critica? |
-| ---------- | ----------- | -------------------- | -------- |
-| Login      | Si          | No                   | Si       |
-| ---------- | ----------- | -------------------- | -------- |
-| Apertura   | Concentrata | Leggera singlarmente | Si       |
-| Verifica   | nel picco   | pesante in aggregato |          |
-| ---------- | ----------- | -------------------- | -------- |
-| Consegna   | Concentrata | Scrittura su DB in   | si       |
-| verifica   | nel picco   | burst                | molta    |
-| ---------- | ----------- | -------------------- | -------- |
-| Dashboard  | Rara        | Pesante (query       | No       |
-| Direttore  |             | aggregate su più     |          |
-|            |             | tabelle)             |          |
-| ---------- | ----------- | -------------------- | -------- |
-| Carimento  | Rara        | Dipende dalla        | No       |
-| materiale  |             | dimensione del file  |          |
-| ---------- | ----------- | -------------------- | -------- |
-
-#
-
-#
+| Operazione | Frequente? | Pesante? | Critica? |
+| --- | --- | --- | --- |
+| Login | Sì | No | Sì |
+| Apertura verifica | Concentrata nel picco | Leggera singolarmente, pesante in aggregato | Sì |
+| Consegna verifica | Concentrata nel picco | Scrittura su DB in burst | Sì, molto |
+| Dashboard Direttore | Rara | Pesante (query aggregate su più tabelle) | No |
+| Caricamento materiale | Rara | Dipende dalla dimensione del file | No |
 
 ## Scelte tecnologiche
 
